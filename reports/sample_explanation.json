@@ -1,45 +1,45 @@
 {
-  "base_value": -0.858522,
+  "base_value": 0.639197,
   "contributions": [
     {
-      "feature": "log_amount",
-      "shap_value": -0.742479,
-      "encoded_value": -0.990311
+      "feature": "V4",
+      "shap_value": -3.150656,
+      "encoded_value": -0.938188
     },
     {
-      "feature": "device_trust_trusted",
-      "shap_value": 0.542777,
-      "encoded_value": 0.0
+      "feature": "V14",
+      "shap_value": -1.070343,
+      "encoded_value": 0.278695
     },
     {
-      "feature": "device_trust_new",
-      "shap_value": 0.403902,
-      "encoded_value": 1.0
+      "feature": "V10",
+      "shap_value": -0.910695,
+      "encoded_value": 0.599445
     },
     {
-      "feature": "channel_swipe",
-      "shap_value": -0.32648,
-      "encoded_value": 1.0
+      "feature": "V8",
+      "shap_value": 0.637336,
+      "encoded_value": -0.515157
     },
     {
-      "feature": "channel_online",
-      "shap_value": -0.126843,
-      "encoded_value": 0.0
+      "feature": "V2",
+      "shap_value": -0.609485,
+      "encoded_value": 0.85416
     },
     {
-      "feature": "txn_count_24h",
-      "shap_value": 0.09533,
-      "encoded_value": 0.812473
+      "feature": "V11",
+      "shap_value": -0.52914,
+      "encoded_value": -0.840855
     },
     {
-      "feature": "merchant_risk_score",
-      "shap_value": 0.083844,
-      "encoded_value": 0.783778
+      "feature": "V18",
+      "shap_value": -0.459024,
+      "encoded_value": -0.468039
     },
     {
-      "feature": "amount_to_avg_ratio",
-      "shap_value": -0.072846,
-      "encoded_value": -0.352512
+      "feature": "V6",
+      "shap_value": -0.451612,
+      "encoded_value": -0.982011
     }
   ],
   "space": "model_margin"

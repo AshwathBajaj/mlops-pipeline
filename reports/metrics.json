@@ -1,185 +1,228 @@
 {
-  "generated_at": "2026-11-20T07:12:50.957549+00:00",
-  "model_version": "logistic_regression-20261120071250",
+  "generated_at": "2026-11-20T07:52:53.171794+00:00",
+  "model_version": "xgboost-20261120075253",
   "seed": 42,
-  "data_source": "synthetic",
-  "selected_model": "logistic_regression",
+  "data_source": "openml",
+  "selected_model": "xgboost",
   "selection_metric": "cv_pr_auc_oof",
-  "precision_target": 0.4,
+  "precision_target": 0.5,
   "dataset": {
-    "n_rows": 30000,
-    "n_train": 24000,
-    "n_test": 6000,
-    "train_fraud_rate": 0.021417,
-    "test_fraud_rate": 0.0215,
-    "fraud_rate": 0.021433,
-    "prevalence_baseline_pr_auc": 0.0215
+    "n_rows": 284807,
+    "n_train": 227845,
+    "n_test": 56962,
+    "train_fraud_rate": 0.001729,
+    "test_fraud_rate": 0.00172,
+    "fraud_rate": 0.001727,
+    "prevalence_baseline_pr_auc": 0.00172,
+    "source": "openml",
+    "n_features": 30,
+    "fraud_count": 492,
+    "legitimate_count": 284315,
+    "feature_names": [
+      "Time",
+      "Amount",
+      "V1",
+      "V2",
+      "V3",
+      "V4",
+      "V5",
+      "V6",
+      "V7",
+      "V8",
+      "V9",
+      "V10",
+      "V11",
+      "V12",
+      "V13",
+      "V14",
+      "V15",
+      "V16",
+      "V17",
+      "V18",
+      "V19",
+      "V20",
+      "V21",
+      "V22",
+      "V23",
+      "V24",
+      "V25",
+      "V26",
+      "V27",
+      "V28"
+    ],
+    "name": "creditcard",
+    "openml_id": 1597,
+    "openml_url": "https://www.openml.org/d/1597",
+    "licence": "Public",
+    "origin": "ULB Machine Learning Group and Worldline. European cardholders, September 2013. Two days of transactions. V1-V28 are principal components; Time and Amount are raw.",
+    "citation": "Andrea Dal Pozzolo, Olivier Caelen, Reid A. Johnson and Gianluca Bontempi. Calibrating Probability with Undersampling for Unbalanced Classification. In Symposium on Computational Intelligence and Data Mining (CIDM), IEEE, 2015.",
+    "distribution": "OpenML dataset 1597 parquet file https://data.openml.org/datasets/0000/1597/dataset_1597.pq. sklearn fetch_openml is attempted if that download fails."
   },
   "models": {
     "logistic_regression": {
       "name": "logistic_regression",
-      "cv_pr_auc_mean": 0.229539,
-      "cv_pr_auc_std": 0.01882,
-      "cv_roc_auc_mean": 0.818812,
-      "cv_pr_auc_oof": 0.223389,
-      "cv_roc_auc_oof": 0.817949,
-      "cv_brier_raw": 0.148474,
-      "cv_brier_calibrated": 0.018573,
-      "cv_ece_raw": 0.313399,
-      "cv_ece_calibrated": 0.00143,
-      "precision_target": 0.4,
+      "cv_pr_auc_mean": 0.749122,
+      "cv_pr_auc_std": 0.053335,
+      "cv_roc_auc_mean": 0.984209,
+      "cv_pr_auc_oof": 0.746236,
+      "cv_roc_auc_oof": 0.983258,
+      "cv_brier_raw": 0.023303,
+      "cv_brier_calibrated": 0.000635,
+      "cv_ece_raw": 0.067578,
+      "cv_ece_calibrated": 0.0001,
+      "precision_target": 0.5,
       "precision_target_achieved": true,
-      "oof_threshold": 0.256165,
-      "oof_precision": 0.4,
-      "oof_recall": 0.167315,
-      "oof_flag_rate": 0.008958,
-      "oof_tp": 86,
-      "oof_fp": 129,
-      "test_pr_auc": 0.283454,
-      "test_roc_auc": 0.869784,
-      "test_brier_raw": 0.146303,
-      "test_brier_calibrated": 0.017778,
-      "test_ece_raw": 0.314571,
-      "test_ece_calibrated": 0.007456,
-      "test_precision": 0.407407,
-      "test_recall": 0.170543,
-      "test_flag_rate": 0.009,
-      "test_tp": 22,
-      "test_fp": 32,
-      "test_fn": 107,
-      "test_tn": 5839
+      "oof_threshold": 0.015725,
+      "oof_precision": 0.539088,
+      "oof_recall": 0.840102,
+      "oof_flag_rate": 0.002695,
+      "oof_tp": 331,
+      "oof_fp": 283,
+      "test_pr_auc": 0.723575,
+      "test_roc_auc": 0.972518,
+      "test_brier_raw": 0.024,
+      "test_brier_calibrated": 0.00062,
+      "test_ece_raw": 0.070299,
+      "test_ece_calibrated": 0.000181,
+      "test_precision": 0.49711,
+      "test_recall": 0.877551,
+      "test_flag_rate": 0.003037,
+      "test_tp": 86,
+      "test_fp": 87,
+      "test_fn": 12,
+      "test_tn": 56777
     },
     "hist_gradient_boosting": {
       "name": "hist_gradient_boosting",
-      "cv_pr_auc_mean": 0.166423,
-      "cv_pr_auc_std": 0.030437,
-      "cv_roc_auc_mean": 0.772066,
-      "cv_pr_auc_oof": 0.156434,
-      "cv_roc_auc_oof": 0.770702,
-      "cv_brier_raw": 0.116651,
-      "cv_brier_calibrated": 0.019376,
-      "cv_ece_raw": 0.28493,
-      "cv_ece_calibrated": 0.001194,
-      "precision_target": 0.4,
+      "cv_pr_auc_mean": 0.775648,
+      "cv_pr_auc_std": 0.010246,
+      "cv_roc_auc_mean": 0.971354,
+      "cv_pr_auc_oof": 0.756081,
+      "cv_roc_auc_oof": 0.961299,
+      "cv_brier_raw": 0.003283,
+      "cv_brier_calibrated": 0.000583,
+      "cv_ece_raw": 0.030393,
+      "cv_ece_calibrated": 0.000145,
+      "precision_target": 0.5,
       "precision_target_achieved": true,
-      "oof_threshold": 0.327507,
-      "oof_precision": 0.407407,
-      "oof_recall": 0.042802,
-      "oof_flag_rate": 0.00225,
-      "oof_tp": 22,
-      "oof_fp": 32,
-      "test_pr_auc": 0.238477,
-      "test_roc_auc": 0.823487,
-      "test_brier_raw": 0.107833,
-      "test_brier_calibrated": 0.018384,
-      "test_ece_raw": 0.269878,
-      "test_ece_calibrated": 0.002884,
-      "test_precision": 0.475,
-      "test_recall": 0.147287,
-      "test_flag_rate": 0.006667,
-      "test_tp": 19,
-      "test_fp": 21,
-      "test_fn": 110,
-      "test_tn": 5850
+      "oof_threshold": 0.039982,
+      "oof_precision": 0.5,
+      "oof_recall": 0.837563,
+      "oof_flag_rate": 0.002897,
+      "oof_tp": 330,
+      "oof_fp": 330,
+      "test_pr_auc": 0.726344,
+      "test_roc_auc": 0.968973,
+      "test_brier_raw": 0.006264,
+      "test_brier_calibrated": 0.000708,
+      "test_ece_raw": 0.053482,
+      "test_ece_calibrated": 0.000932,
+      "test_precision": 0.330769,
+      "test_recall": 0.877551,
+      "test_flag_rate": 0.004564,
+      "test_tp": 86,
+      "test_fp": 174,
+      "test_fn": 12,
+      "test_tn": 56690
     },
     "xgboost": {
       "name": "xgboost",
-      "cv_pr_auc_mean": 0.168082,
-      "cv_pr_auc_std": 0.027147,
-      "cv_roc_auc_mean": 0.758666,
-      "cv_pr_auc_oof": 0.159766,
-      "cv_roc_auc_oof": 0.758181,
-      "cv_brier_raw": 0.085509,
-      "cv_brier_calibrated": 0.01936,
-      "cv_ece_raw": 0.197518,
-      "cv_ece_calibrated": 0.00218,
-      "precision_target": 0.4,
+      "cv_pr_auc_mean": 0.836537,
+      "cv_pr_auc_std": 0.023341,
+      "cv_roc_auc_mean": 0.98305,
+      "cv_pr_auc_oof": 0.834388,
+      "cv_roc_auc_oof": 0.981338,
+      "cv_brier_raw": 0.00092,
+      "cv_brier_calibrated": 0.000458,
+      "cv_ece_raw": 0.002624,
+      "cv_ece_calibrated": 5.9e-05,
+      "precision_target": 0.5,
       "precision_target_achieved": true,
-      "oof_threshold": 0.285057,
-      "oof_precision": 0.422535,
-      "oof_recall": 0.058366,
-      "oof_flag_rate": 0.002958,
-      "oof_tp": 30,
-      "oof_fp": 41,
-      "test_pr_auc": 0.228823,
-      "test_roc_auc": 0.819829,
-      "test_brier_raw": 0.091842,
-      "test_brier_calibrated": 0.018838,
-      "test_ece_raw": 0.217258,
-      "test_ece_calibrated": 0.005126,
-      "test_precision": 0.541667,
-      "test_recall": 0.100775,
-      "test_flag_rate": 0.004,
-      "test_tp": 13,
-      "test_fp": 11,
-      "test_fn": 116,
-      "test_tn": 5860
+      "oof_threshold": 0.020246,
+      "oof_precision": 0.500747,
+      "oof_recall": 0.850254,
+      "oof_flag_rate": 0.002936,
+      "oof_tp": 335,
+      "oof_fp": 334,
+      "test_pr_auc": 0.850002,
+      "test_roc_auc": 0.981867,
+      "test_brier_raw": 0.001447,
+      "test_brier_calibrated": 0.000506,
+      "test_ece_raw": 0.004797,
+      "test_ece_calibrated": 0.000425,
+      "test_precision": 0.359504,
+      "test_recall": 0.887755,
+      "test_flag_rate": 0.004248,
+      "test_tp": 87,
+      "test_fp": 155,
+      "test_fn": 11,
+      "test_tn": 56709
     }
   },
   "shap": {
     "sample_size": 1500,
-    "base_value": -0.771089,
+    "base_value": 0.639197,
     "space": "model_margin",
     "top_features": [
       {
-        "feature": "log_amount",
-        "mean_abs_shap": 0.537763
+        "feature": "V14",
+        "mean_abs_shap": 1.651425
       },
       {
-        "feature": "channel_online",
-        "mean_abs_shap": 0.240299
+        "feature": "V4",
+        "mean_abs_shap": 1.523425
       },
       {
-        "feature": "device_trust_trusted",
-        "mean_abs_shap": 0.120266
+        "feature": "V10",
+        "mean_abs_shap": 0.6692
       },
       {
-        "feature": "txn_count_24h",
-        "mean_abs_shap": 0.111819
+        "feature": "V12",
+        "mean_abs_shap": 0.648546
       },
       {
-        "feature": "country_match_foreign",
-        "mean_abs_shap": 0.108778
+        "feature": "V3",
+        "mean_abs_shap": 0.392063
       },
       {
-        "feature": "country_match_domestic",
-        "mean_abs_shap": 0.093129
+        "feature": "V8",
+        "mean_abs_shap": 0.362556
       },
       {
-        "feature": "is_night",
-        "mean_abs_shap": 0.087816
+        "feature": "V19",
+        "mean_abs_shap": 0.316843
       },
       {
-        "feature": "utilization",
-        "mean_abs_shap": 0.086787
+        "feature": "V11",
+        "mean_abs_shap": 0.313276
       },
       {
-        "feature": "merchant_risk_score",
-        "mean_abs_shap": 0.083734
-      },
-      {
-        "feature": "amount_to_avg_ratio",
-        "mean_abs_shap": 0.078926
-      },
-      {
-        "feature": "channel_chip",
-        "mean_abs_shap": 0.072362
-      },
-      {
-        "feature": "channel_swipe",
-        "mean_abs_shap": 0.063697
+        "feature": "V26",
+        "mean_abs_shap": 0.276471
       },
       {
         "feature": "hour",
-        "mean_abs_shap": 0.061187
+        "mean_abs_shap": 0.264034
       },
       {
-        "feature": "distance_from_home_km",
-        "mean_abs_shap": 0.057015
+        "feature": "V18",
+        "mean_abs_shap": 0.261192
       },
       {
-        "feature": "device_trust_new",
-        "mean_abs_shap": 0.056344
+        "feature": "V15",
+        "mean_abs_shap": 0.252924
+      },
+      {
+        "feature": "V16",
+        "mean_abs_shap": 0.252718
+      },
+      {
+        "feature": "Amount",
+        "mean_abs_shap": 0.228996
+      },
+      {
+        "feature": "V13",
+        "mean_abs_shap": 0.221924
       }
     ]
   },
@@ -191,103 +234,193 @@
         "n_current": 4000,
         "features": [
           {
-            "feature": "amount",
+            "feature": "Time",
             "kind": "numeric",
-            "psi": 0.002162,
-            "ks": 0.01375
+            "psi": 0.006532,
+            "ks": 0.02425
           },
           {
-            "feature": "hour",
+            "feature": "Amount",
             "kind": "numeric",
-            "psi": 0.001909,
-            "ks": 0.01275
+            "psi": 0.003241,
+            "ks": 0.01925
           },
           {
-            "feature": "account_age_days",
+            "feature": "V1",
             "kind": "numeric",
-            "psi": 0.005001,
-            "ks": 0.02025
+            "psi": 0.005495,
+            "ks": 0.015
           },
           {
-            "feature": "credit_limit",
+            "feature": "V2",
             "kind": "numeric",
-            "psi": 0.002331,
+            "psi": 0.002979,
+            "ks": 0.0135
+          },
+          {
+            "feature": "V3",
+            "kind": "numeric",
+            "psi": 0.004792,
             "ks": 0.019
           },
           {
-            "feature": "utilization",
+            "feature": "V4",
             "kind": "numeric",
-            "psi": 0.005399,
-            "ks": 0.02275
+            "psi": 0.006203,
+            "ks": 0.0185
           },
           {
-            "feature": "txn_count_24h",
+            "feature": "V5",
             "kind": "numeric",
-            "psi": 0.001095,
-            "ks": 0.01
+            "psi": 0.003926,
+            "ks": 0.01975
           },
           {
-            "feature": "avg_amount_30d",
+            "feature": "V6",
             "kind": "numeric",
-            "psi": 0.002798,
-            "ks": 0.01825
+            "psi": 0.002682,
+            "ks": 0.02225
           },
           {
-            "feature": "days_since_last_txn",
+            "feature": "V7",
             "kind": "numeric",
-            "psi": 0.002315,
+            "psi": 0.00412,
+            "ks": 0.028
+          },
+          {
+            "feature": "V8",
+            "kind": "numeric",
+            "psi": 0.007562,
+            "ks": 0.0165
+          },
+          {
+            "feature": "V9",
+            "kind": "numeric",
+            "psi": 0.001338,
             "ks": 0.0105
           },
           {
-            "feature": "distance_from_home_km",
+            "feature": "V10",
             "kind": "numeric",
-            "psi": 0.004067,
+            "psi": 0.004553,
+            "ks": 0.017
+          },
+          {
+            "feature": "V11",
+            "kind": "numeric",
+            "psi": 0.005394,
             "ks": 0.0195
           },
           {
-            "feature": "merchant_risk_score",
+            "feature": "V12",
             "kind": "numeric",
-            "psi": 0.002284,
-            "ks": 0.012
+            "psi": 0.007322,
+            "ks": 0.02775
           },
           {
-            "feature": "failed_attempts_24h",
+            "feature": "V13",
             "kind": "numeric",
-            "psi": 0.00041,
-            "ks": 0.0075
+            "psi": 0.003409,
+            "ks": 0.016
           },
           {
-            "feature": "merchant_category",
-            "kind": "categorical",
-            "psi": 0.003887,
-            "ks": null
+            "feature": "V14",
+            "kind": "numeric",
+            "psi": 0.008623,
+            "ks": 0.01425
           },
           {
-            "feature": "channel",
-            "kind": "categorical",
-            "psi": 0.000939,
-            "ks": null
+            "feature": "V15",
+            "kind": "numeric",
+            "psi": 0.007997,
+            "ks": 0.0305
           },
           {
-            "feature": "country_match",
-            "kind": "categorical",
-            "psi": 0.000502,
-            "ks": null
+            "feature": "V16",
+            "kind": "numeric",
+            "psi": 0.006461,
+            "ks": 0.025
           },
           {
-            "feature": "device_trust",
-            "kind": "categorical",
-            "psi": 0.000928,
-            "ks": null
+            "feature": "V17",
+            "kind": "numeric",
+            "psi": 0.003294,
+            "ks": 0.017
+          },
+          {
+            "feature": "V18",
+            "kind": "numeric",
+            "psi": 0.005037,
+            "ks": 0.01325
+          },
+          {
+            "feature": "V19",
+            "kind": "numeric",
+            "psi": 0.006087,
+            "ks": 0.0275
+          },
+          {
+            "feature": "V20",
+            "kind": "numeric",
+            "psi": 0.001794,
+            "ks": 0.0115
+          },
+          {
+            "feature": "V21",
+            "kind": "numeric",
+            "psi": 0.005668,
+            "ks": 0.018
+          },
+          {
+            "feature": "V22",
+            "kind": "numeric",
+            "psi": 0.000869,
+            "ks": 0.00775
+          },
+          {
+            "feature": "V23",
+            "kind": "numeric",
+            "psi": 0.004775,
+            "ks": 0.015
+          },
+          {
+            "feature": "V24",
+            "kind": "numeric",
+            "psi": 0.005335,
+            "ks": 0.01675
+          },
+          {
+            "feature": "V25",
+            "kind": "numeric",
+            "psi": 0.007951,
+            "ks": 0.01975
+          },
+          {
+            "feature": "V26",
+            "kind": "numeric",
+            "psi": 0.004463,
+            "ks": 0.018
+          },
+          {
+            "feature": "V27",
+            "kind": "numeric",
+            "psi": 0.009954,
+            "ks": 0.02275
+          },
+          {
+            "feature": "V28",
+            "kind": "numeric",
+            "psi": 0.003145,
+            "ks": 0.01525
           }
         ],
-        "prediction_psi": 0.003953,
-        "prediction_ks": 0.014,
+        "prediction_psi": 0.006559,
+        "prediction_ks": 0.0145,
         "decision": {
           "retrain": false,
           "reasons": [],
           "flagged_features": [],
-          "prediction_psi": 0.003953
+          "prediction_psi": 0.006559
         }
       },
       {
@@ -296,185 +429,289 @@
         "n_current": 4000,
         "features": [
           {
-            "feature": "amount",
+            "feature": "Time",
             "kind": "numeric",
-            "psi": 1.091261,
-            "ks": 0.41775
+            "psi": 1.984868,
+            "ks": 0.3445
           },
           {
-            "feature": "hour",
+            "feature": "Amount",
             "kind": "numeric",
-            "psi": 1.80906,
-            "ks": 0.40475
+            "psi": 0.309361,
+            "ks": 0.20225
           },
           {
-            "feature": "account_age_days",
+            "feature": "V1",
             "kind": "numeric",
-            "psi": 0.005001,
-            "ks": 0.02025
+            "psi": 0.793574,
+            "ks": 0.561
           },
           {
-            "feature": "credit_limit",
+            "feature": "V2",
             "kind": "numeric",
-            "psi": 0.002331,
-            "ks": 0.019
+            "psi": 2.728209,
+            "ks": 0.6715
           },
           {
-            "feature": "utilization",
+            "feature": "V3",
             "kind": "numeric",
-            "psi": 0.005399,
-            "ks": 0.02275
+            "psi": 1.39601,
+            "ks": 0.504
           },
           {
-            "feature": "txn_count_24h",
+            "feature": "V4",
             "kind": "numeric",
-            "psi": 13.030044,
-            "ks": 0.966
+            "psi": 4.9364,
+            "ks": 0.783
           },
           {
-            "feature": "avg_amount_30d",
+            "feature": "V5",
             "kind": "numeric",
-            "psi": 0.002798,
-            "ks": 0.01825
+            "psi": 0.003926,
+            "ks": 0.01975
           },
           {
-            "feature": "days_since_last_txn",
+            "feature": "V6",
             "kind": "numeric",
-            "psi": 0.002315,
+            "psi": 0.002682,
+            "ks": 0.02225
+          },
+          {
+            "feature": "V7",
+            "kind": "numeric",
+            "psi": 0.00412,
+            "ks": 0.028
+          },
+          {
+            "feature": "V8",
+            "kind": "numeric",
+            "psi": 0.007562,
+            "ks": 0.0165
+          },
+          {
+            "feature": "V9",
+            "kind": "numeric",
+            "psi": 0.001338,
             "ks": 0.0105
           },
           {
-            "feature": "distance_from_home_km",
+            "feature": "V10",
             "kind": "numeric",
-            "psi": 12.433835,
-            "ks": 0.952
+            "psi": 0.004553,
+            "ks": 0.017
           },
           {
-            "feature": "merchant_risk_score",
+            "feature": "V11",
             "kind": "numeric",
-            "psi": 11.009147,
-            "ks": 0.86875
+            "psi": 0.005394,
+            "ks": 0.0195
           },
           {
-            "feature": "failed_attempts_24h",
+            "feature": "V12",
             "kind": "numeric",
-            "psi": 0.00041,
-            "ks": 0.0075
+            "psi": 0.007322,
+            "ks": 0.02775
           },
           {
-            "feature": "merchant_category",
-            "kind": "categorical",
-            "psi": 0.003887,
-            "ks": null
+            "feature": "V13",
+            "kind": "numeric",
+            "psi": 0.003409,
+            "ks": 0.016
           },
           {
-            "feature": "channel",
-            "kind": "categorical",
-            "psi": 0.38933,
-            "ks": null
+            "feature": "V14",
+            "kind": "numeric",
+            "psi": 11.08436,
+            "ks": 0.9655
           },
           {
-            "feature": "country_match",
-            "kind": "categorical",
-            "psi": 0.601559,
-            "ks": null
+            "feature": "V15",
+            "kind": "numeric",
+            "psi": 0.007997,
+            "ks": 0.0305
           },
           {
-            "feature": "device_trust",
-            "kind": "categorical",
-            "psi": 0.377574,
-            "ks": null
+            "feature": "V16",
+            "kind": "numeric",
+            "psi": 0.006461,
+            "ks": 0.025
+          },
+          {
+            "feature": "V17",
+            "kind": "numeric",
+            "psi": 0.003294,
+            "ks": 0.017
+          },
+          {
+            "feature": "V18",
+            "kind": "numeric",
+            "psi": 0.005037,
+            "ks": 0.01325
+          },
+          {
+            "feature": "V19",
+            "kind": "numeric",
+            "psi": 0.006087,
+            "ks": 0.0275
+          },
+          {
+            "feature": "V20",
+            "kind": "numeric",
+            "psi": 0.001794,
+            "ks": 0.0115
+          },
+          {
+            "feature": "V21",
+            "kind": "numeric",
+            "psi": 0.005668,
+            "ks": 0.018
+          },
+          {
+            "feature": "V22",
+            "kind": "numeric",
+            "psi": 0.000869,
+            "ks": 0.00775
+          },
+          {
+            "feature": "V23",
+            "kind": "numeric",
+            "psi": 0.004775,
+            "ks": 0.015
+          },
+          {
+            "feature": "V24",
+            "kind": "numeric",
+            "psi": 0.005335,
+            "ks": 0.01675
+          },
+          {
+            "feature": "V25",
+            "kind": "numeric",
+            "psi": 0.007951,
+            "ks": 0.01975
+          },
+          {
+            "feature": "V26",
+            "kind": "numeric",
+            "psi": 0.004463,
+            "ks": 0.018
+          },
+          {
+            "feature": "V27",
+            "kind": "numeric",
+            "psi": 0.009954,
+            "ks": 0.02275
+          },
+          {
+            "feature": "V28",
+            "kind": "numeric",
+            "psi": 0.003145,
+            "ks": 0.01525
           }
         ],
-        "prediction_psi": 6.134762,
-        "prediction_ks": 0.81375,
+        "prediction_psi": 3.808311,
+        "prediction_ks": 0.652,
         "decision": {
           "retrain": true,
           "reasons": [
-            "8 features have PSI >= 0.2: amount, hour, txn_count_24h, distance_from_home_km, merchant_risk_score, channel, country_match, device_trust",
-            "prediction PSI 6.1348 >= 0.1"
+            "7 features have PSI >= 0.2: Time, Amount, V1, V2, V3, V4, V14",
+            "prediction PSI 3.8083 >= 0.1"
           ],
           "flagged_features": [
-            "amount",
-            "hour",
-            "txn_count_24h",
-            "distance_from_home_km",
-            "merchant_risk_score",
-            "channel",
-            "country_match",
-            "device_trust"
+            "Time",
+            "Amount",
+            "V1",
+            "V2",
+            "V3",
+            "V4",
+            "V14"
           ],
-          "prediction_psi": 6.134762
+          "prediction_psi": 3.808311
         }
       }
     ]
   },
   "sample_request": {
-    "amount": 17.710345,
-    "hour": 12,
-    "account_age_days": 1300,
-    "credit_limit": 10000.0,
-    "utilization": 0.21233,
-    "txn_count_24h": 2,
-    "avg_amount_30d": 22.89892,
-    "days_since_last_txn": 0.272564,
-    "distance_from_home_km": 173.454951,
-    "merchant_risk_score": 0.235328,
-    "failed_attempts_24h": 0,
-    "merchant_category": "grocery",
-    "channel": "swipe",
-    "country_match": "domestic",
-    "device_trust": "new"
+    "Time": 160760.0,
+    "Amount": 23.0,
+    "V1": -0.674466,
+    "V2": 1.408105,
+    "V3": -1.110622,
+    "V4": -1.328366,
+    "V5": 1.388996,
+    "V6": -1.308439,
+    "V7": 1.885879,
+    "V8": -0.614233,
+    "V9": 0.311652,
+    "V10": 0.650757,
+    "V11": -0.857785,
+    "V12": -0.229961,
+    "V13": -0.199817,
+    "V14": 0.266371,
+    "V15": -0.046544,
+    "V16": -0.741398,
+    "V17": -0.605617,
+    "V18": -0.392568,
+    "V19": -0.162648,
+    "V20": 0.394322,
+    "V21": 0.080084,
+    "V22": 0.810034,
+    "V23": -0.224327,
+    "V24": 0.707899,
+    "V25": -0.135837,
+    "V26": 0.045102,
+    "V27": 0.533837,
+    "V28": 0.291319
   },
   "sample_response": {
-    "fraud_probability": 0.009044,
+    "fraud_probability": 8.8e-05,
     "fraud_flag": false,
-    "threshold": 0.256165,
-    "model_name": "logistic_regression",
-    "model_version": "logistic_regression-20261120071250"
+    "threshold": 0.020246,
+    "model_name": "xgboost",
+    "model_version": "xgboost-20261120075253"
   },
   "sample_explanation": {
-    "base_value": -0.858522,
+    "base_value": 0.639197,
     "contributions": [
       {
-        "feature": "log_amount",
-        "shap_value": -0.742479,
-        "encoded_value": -0.990311
+        "feature": "V4",
+        "shap_value": -3.150656,
+        "encoded_value": -0.938188
       },
       {
-        "feature": "device_trust_trusted",
-        "shap_value": 0.542777,
-        "encoded_value": 0.0
+        "feature": "V14",
+        "shap_value": -1.070343,
+        "encoded_value": 0.278695
       },
       {
-        "feature": "device_trust_new",
-        "shap_value": 0.403902,
-        "encoded_value": 1.0
+        "feature": "V10",
+        "shap_value": -0.910695,
+        "encoded_value": 0.599445
       },
       {
-        "feature": "channel_swipe",
-        "shap_value": -0.32648,
-        "encoded_value": 1.0
+        "feature": "V8",
+        "shap_value": 0.637336,
+        "encoded_value": -0.515157
       },
       {
-        "feature": "channel_online",
-        "shap_value": -0.126843,
-        "encoded_value": 0.0
+        "feature": "V2",
+        "shap_value": -0.609485,
+        "encoded_value": 0.85416
       },
       {
-        "feature": "txn_count_24h",
-        "shap_value": 0.09533,
-        "encoded_value": 0.812473
+        "feature": "V11",
+        "shap_value": -0.52914,
+        "encoded_value": -0.840855
       },
       {
-        "feature": "merchant_risk_score",
-        "shap_value": 0.083844,
-        "encoded_value": 0.783778
+        "feature": "V18",
+        "shap_value": -0.459024,
+        "encoded_value": -0.468039
       },
       {
-        "feature": "amount_to_avg_ratio",
-        "shap_value": -0.072846,
-        "encoded_value": -0.352512
+        "feature": "V6",
+        "shap_value": -0.451612,
+        "encoded_value": -0.982011
       }
     ],
     "space": "model_margin"
@@ -487,14 +724,14 @@
     "shap": "reports/plots/shap_summary.png"
   },
   "mlflow": {
-    "selected_run_id": "49fe7559f07b43e9abd657a0a85a3f5e",
-    "model_uri": "models:/m-9662271936424ee5b3dc1e265dfd0d71",
+    "selected_run_id": "5055c3c29a1b4f8d8841f1551c633a3e",
+    "model_uri": "models:/m-6f7418a380a840d68e900b534323f376",
     "registry_model": "payguard-fraud-detector",
     "registry_version": "1",
     "run_ids": {
-      "logistic_regression": "49fe7559f07b43e9abd657a0a85a3f5e",
-      "hist_gradient_boosting": "a5393a0f8e6a4f338a60ee594fc9881d",
-      "xgboost": "aa380c123fe14c138cb19c8bf00b7236"
+      "logistic_regression": "1df01653a8294917b629b0d939cea8ce",
+      "hist_gradient_boosting": "38c421b2a9c94a09ac4ed0fa4185bbef",
+      "xgboost": "5055c3c29a1b4f8d8841f1551c633a3e"
     }
   }
 }

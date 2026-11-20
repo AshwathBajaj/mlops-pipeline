@@ -1,7 +1,7 @@
 {
-  "fraud_probability": 0.009044,
+  "fraud_probability": 8.8e-05,
   "fraud_flag": false,
-  "threshold": 0.256165,
-  "model_name": "logistic_regression",
-  "model_version": "logistic_regression-20261120071250"
+  "threshold": 0.020246,
+  "model_name": "xgboost",
+  "model_version": "xgboost-20261120075253"
 }
