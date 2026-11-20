@@ -1,0 +1,67 @@
+{
+  "sample_size": 1500,
+  "base_value": -0.771089,
+  "space": "model_margin",
+  "top_features": [
+    {
+      "feature": "log_amount",
+      "mean_abs_shap": 0.537763
+    },
+    {
+      "feature": "channel_online",
+      "mean_abs_shap": 0.240299
+    },
+    {
+      "feature": "device_trust_trusted",
+      "mean_abs_shap": 0.120266
+    },
+    {
+      "feature": "txn_count_24h",
+      "mean_abs_shap": 0.111819
+    },
+    {
+      "feature": "country_match_foreign",
+      "mean_abs_shap": 0.108778
+    },
+    {
+      "feature": "country_match_domestic",
+      "mean_abs_shap": 0.093129
+    },
+    {
+      "feature": "is_night",
+      "mean_abs_shap": 0.087816
+    },
+    {
+      "feature": "utilization",
+      "mean_abs_shap": 0.086787
+    },
+    {
+      "feature": "merchant_risk_score",
+      "mean_abs_shap": 0.083734
+    },
+    {
+      "feature": "amount_to_avg_ratio",
+      "mean_abs_shap": 0.078926
+    },
+    {
+      "feature": "channel_chip",
+      "mean_abs_shap": 0.072362
+    },
+    {
+      "feature": "channel_swipe",
+      "mean_abs_shap": 0.063697
+    },
+    {
+      "feature": "hour",
+      "mean_abs_shap": 0.061187
+    },
+    {
+      "feature": "distance_from_home_km",
+      "mean_abs_shap": 0.057015
+    },
+    {
+      "feature": "device_trust_new",
+      "mean_abs_shap": 0.056344
+    }
+  ]
+}

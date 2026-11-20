@@ -1,0 +1,226 @@
+{
+  "comparisons": [
+    {
+      "label": "stable_draw",
+      "n_reference": 4000,
+      "n_current": 4000,
+      "features": [
+        {
+          "feature": "amount",
+          "kind": "numeric",
+          "psi": 0.002162,
+          "ks": 0.01375
+        },
+        {
+          "feature": "hour",
+          "kind": "numeric",
+          "psi": 0.001909,
+          "ks": 0.01275
+        },
+        {
+          "feature": "account_age_days",
+          "kind": "numeric",
+          "psi": 0.005001,
+          "ks": 0.02025
+        },
+        {
+          "feature": "credit_limit",
+          "kind": "numeric",
+          "psi": 0.002331,
+          "ks": 0.019
+        },
+        {
+          "feature": "utilization",
+          "kind": "numeric",
+          "psi": 0.005399,
+          "ks": 0.02275
+        },
+        {
+          "feature": "txn_count_24h",
+          "kind": "numeric",
+          "psi": 0.001095,
+          "ks": 0.01
+        },
+        {
+          "feature": "avg_amount_30d",
+          "kind": "numeric",
+          "psi": 0.002798,
+          "ks": 0.01825
+        },
+        {
+          "feature": "days_since_last_txn",
+          "kind": "numeric",
+          "psi": 0.002315,
+          "ks": 0.0105
+        },
+        {
+          "feature": "distance_from_home_km",
+          "kind": "numeric",
+          "psi": 0.004067,
+          "ks": 0.0195
+        },
+        {
+          "feature": "merchant_risk_score",
+          "kind": "numeric",
+          "psi": 0.002284,
+          "ks": 0.012
+        },
+        {
+          "feature": "failed_attempts_24h",
+          "kind": "numeric",
+          "psi": 0.00041,
+          "ks": 0.0075
+        },
+        {
+          "feature": "merchant_category",
+          "kind": "categorical",
+          "psi": 0.003887,
+          "ks": null
+        },
+        {
+          "feature": "channel",
+          "kind": "categorical",
+          "psi": 0.000939,
+          "ks": null
+        },
+        {
+          "feature": "country_match",
+          "kind": "categorical",
+          "psi": 0.000502,
+          "ks": null
+        },
+        {
+          "feature": "device_trust",
+          "kind": "categorical",
+          "psi": 0.000928,
+          "ks": null
+        }
+      ],
+      "prediction_psi": 0.003953,
+      "prediction_ks": 0.014,
+      "decision": {
+        "retrain": false,
+        "reasons": [],
+        "flagged_features": [],
+        "prediction_psi": 0.003953
+      }
+    },
+    {
+      "label": "shifted_draw",
+      "n_reference": 4000,
+      "n_current": 4000,
+      "features": [
+        {
+          "feature": "amount",
+          "kind": "numeric",
+          "psi": 1.091261,
+          "ks": 0.41775
+        },
+        {
+          "feature": "hour",
+          "kind": "numeric",
+          "psi": 1.80906,
+          "ks": 0.40475
+        },
+        {
+          "feature": "account_age_days",
+          "kind": "numeric",
+          "psi": 0.005001,
+          "ks": 0.02025
+        },
+        {
+          "feature": "credit_limit",
+          "kind": "numeric",
+          "psi": 0.002331,
+          "ks": 0.019
+        },
+        {
+          "feature": "utilization",
+          "kind": "numeric",
+          "psi": 0.005399,
+          "ks": 0.02275
+        },
+        {
+          "feature": "txn_count_24h",
+          "kind": "numeric",
+          "psi": 13.030044,
+          "ks": 0.966
+        },
+        {
+          "feature": "avg_amount_30d",
+          "kind": "numeric",
+          "psi": 0.002798,
+          "ks": 0.01825
+        },
+        {
+          "feature": "days_since_last_txn",
+          "kind": "numeric",
+          "psi": 0.002315,
+          "ks": 0.0105
+        },
+        {
+          "feature": "distance_from_home_km",
+          "kind": "numeric",
+          "psi": 12.433835,
+          "ks": 0.952
+        },
+        {
+          "feature": "merchant_risk_score",
+          "kind": "numeric",
+          "psi": 11.009147,
+          "ks": 0.86875
+        },
+        {
+          "feature": "failed_attempts_24h",
+          "kind": "numeric",
+          "psi": 0.00041,
+          "ks": 0.0075
+        },
+        {
+          "feature": "merchant_category",
+          "kind": "categorical",
+          "psi": 0.003887,
+          "ks": null
+        },
+        {
+          "feature": "channel",
+          "kind": "categorical",
+          "psi": 0.38933,
+          "ks": null
+        },
+        {
+          "feature": "country_match",
+          "kind": "categorical",
+          "psi": 0.601559,
+          "ks": null
+        },
+        {
+          "feature": "device_trust",
+          "kind": "categorical",
+          "psi": 0.377574,
+          "ks": null
+        }
+      ],
+      "prediction_psi": 6.134762,
+      "prediction_ks": 0.81375,
+      "decision": {
+        "retrain": true,
+        "reasons": [
+          "8 features have PSI >= 0.2: amount, hour, txn_count_24h, distance_from_home_km, merchant_risk_score, channel, country_match, device_trust",
+          "prediction PSI 6.1348 >= 0.1"
+        ],
+        "flagged_features": [
+          "amount",
+          "hour",
+          "txn_count_24h",
+          "distance_from_home_km",
+          "merchant_risk_score",
+          "channel",
+          "country_match",
+          "device_trust"
+        ],
+        "prediction_psi": 6.134762
+      }
+    }
+  ]
+}

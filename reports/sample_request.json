@@ -1,0 +1,17 @@
+{
+  "amount": 17.710345,
+  "hour": 12,
+  "account_age_days": 1300,
+  "credit_limit": 10000.0,
+  "utilization": 0.21233,
+  "txn_count_24h": 2,
+  "avg_amount_30d": 22.89892,
+  "days_since_last_txn": 0.272564,
+  "distance_from_home_km": 173.454951,
+  "merchant_risk_score": 0.235328,
+  "failed_attempts_24h": 0,
+  "merchant_category": "grocery",
+  "channel": "swipe",
+  "country_match": "domestic",
+  "device_trust": "new"
+}

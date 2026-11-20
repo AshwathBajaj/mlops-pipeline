@@ -1,0 +1,46 @@
+{
+  "base_value": -0.858522,
+  "contributions": [
+    {
+      "feature": "log_amount",
+      "shap_value": -0.742479,
+      "encoded_value": -0.990311
+    },
+    {
+      "feature": "device_trust_trusted",
+      "shap_value": 0.542777,
+      "encoded_value": 0.0
+    },
+    {
+      "feature": "device_trust_new",
+      "shap_value": 0.403902,
+      "encoded_value": 1.0
+    },
+    {
+      "feature": "channel_swipe",
+      "shap_value": -0.32648,
+      "encoded_value": 1.0
+    },
+    {
+      "feature": "channel_online",
+      "shap_value": -0.126843,
+      "encoded_value": 0.0
+    },
+    {
+      "feature": "txn_count_24h",
+      "shap_value": 0.09533,
+      "encoded_value": 0.812473
+    },
+    {
+      "feature": "merchant_risk_score",
+      "shap_value": 0.083844,
+      "encoded_value": 0.783778
+    },
+    {
+      "feature": "amount_to_avg_ratio",
+      "shap_value": -0.072846,
+      "encoded_value": -0.352512
+    }
+  ],
+  "space": "model_margin"
+}

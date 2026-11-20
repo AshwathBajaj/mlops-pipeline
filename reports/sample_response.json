@@ -1,0 +1,7 @@
+{
+  "fraud_probability": 0.009044,
+  "fraud_flag": false,
+  "threshold": 0.256165,
+  "model_name": "logistic_regression",
+  "model_version": "logistic_regression-20261120071250"
+}

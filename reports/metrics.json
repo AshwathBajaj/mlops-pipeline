@@ -1,0 +1,500 @@
+{
+  "generated_at": "2026-11-20T07:12:50.957549+00:00",
+  "model_version": "logistic_regression-20261120071250",
+  "seed": 42,
+  "data_source": "synthetic",
+  "selected_model": "logistic_regression",
+  "selection_metric": "cv_pr_auc_oof",
+  "precision_target": 0.4,
+  "dataset": {
+    "n_rows": 30000,
+    "n_train": 24000,
+    "n_test": 6000,
+    "train_fraud_rate": 0.021417,
+    "test_fraud_rate": 0.0215,
+    "fraud_rate": 0.021433,
+    "prevalence_baseline_pr_auc": 0.0215
+  },
+  "models": {
+    "logistic_regression": {
+      "name": "logistic_regression",
+      "cv_pr_auc_mean": 0.229539,
+      "cv_pr_auc_std": 0.01882,
+      "cv_roc_auc_mean": 0.818812,
+      "cv_pr_auc_oof": 0.223389,
+      "cv_roc_auc_oof": 0.817949,
+      "cv_brier_raw": 0.148474,
+      "cv_brier_calibrated": 0.018573,
+      "cv_ece_raw": 0.313399,
+      "cv_ece_calibrated": 0.00143,
+      "precision_target": 0.4,
+      "precision_target_achieved": true,
+      "oof_threshold": 0.256165,
+      "oof_precision": 0.4,
+      "oof_recall": 0.167315,
+      "oof_flag_rate": 0.008958,
+      "oof_tp": 86,
+      "oof_fp": 129,
+      "test_pr_auc": 0.283454,
+      "test_roc_auc": 0.869784,
+      "test_brier_raw": 0.146303,
+      "test_brier_calibrated": 0.017778,
+      "test_ece_raw": 0.314571,
+      "test_ece_calibrated": 0.007456,
+      "test_precision": 0.407407,
+      "test_recall": 0.170543,
+      "test_flag_rate": 0.009,
+      "test_tp": 22,
+      "test_fp": 32,
+      "test_fn": 107,
+      "test_tn": 5839
+    },
+    "hist_gradient_boosting": {
+      "name": "hist_gradient_boosting",
+      "cv_pr_auc_mean": 0.166423,
+      "cv_pr_auc_std": 0.030437,
+      "cv_roc_auc_mean": 0.772066,
+      "cv_pr_auc_oof": 0.156434,
+      "cv_roc_auc_oof": 0.770702,
+      "cv_brier_raw": 0.116651,
+      "cv_brier_calibrated": 0.019376,
+      "cv_ece_raw": 0.28493,
+      "cv_ece_calibrated": 0.001194,
+      "precision_target": 0.4,
+      "precision_target_achieved": true,
+      "oof_threshold": 0.327507,
+      "oof_precision": 0.407407,
+      "oof_recall": 0.042802,
+      "oof_flag_rate": 0.00225,
+      "oof_tp": 22,
+      "oof_fp": 32,
+      "test_pr_auc": 0.238477,
+      "test_roc_auc": 0.823487,
+      "test_brier_raw": 0.107833,
+      "test_brier_calibrated": 0.018384,
+      "test_ece_raw": 0.269878,
+      "test_ece_calibrated": 0.002884,
+      "test_precision": 0.475,
+      "test_recall": 0.147287,
+      "test_flag_rate": 0.006667,
+      "test_tp": 19,
+      "test_fp": 21,
+      "test_fn": 110,
+      "test_tn": 5850
+    },
+    "xgboost": {
+      "name": "xgboost",
+      "cv_pr_auc_mean": 0.168082,
+      "cv_pr_auc_std": 0.027147,
+      "cv_roc_auc_mean": 0.758666,
+      "cv_pr_auc_oof": 0.159766,
+      "cv_roc_auc_oof": 0.758181,
+      "cv_brier_raw": 0.085509,
+      "cv_brier_calibrated": 0.01936,
+      "cv_ece_raw": 0.197518,
+      "cv_ece_calibrated": 0.00218,
+      "precision_target": 0.4,
+      "precision_target_achieved": true,
+      "oof_threshold": 0.285057,
+      "oof_precision": 0.422535,
+      "oof_recall": 0.058366,
+      "oof_flag_rate": 0.002958,
+      "oof_tp": 30,
+      "oof_fp": 41,
+      "test_pr_auc": 0.228823,
+      "test_roc_auc": 0.819829,
+      "test_brier_raw": 0.091842,
+      "test_brier_calibrated": 0.018838,
+      "test_ece_raw": 0.217258,
+      "test_ece_calibrated": 0.005126,
+      "test_precision": 0.541667,
+      "test_recall": 0.100775,
+      "test_flag_rate": 0.004,
+      "test_tp": 13,
+      "test_fp": 11,
+      "test_fn": 116,
+      "test_tn": 5860
+    }
+  },
+  "shap": {
+    "sample_size": 1500,
+    "base_value": -0.771089,
+    "space": "model_margin",
+    "top_features": [
+      {
+        "feature": "log_amount",
+        "mean_abs_shap": 0.537763
+      },
+      {
+        "feature": "channel_online",
+        "mean_abs_shap": 0.240299
+      },
+      {
+        "feature": "device_trust_trusted",
+        "mean_abs_shap": 0.120266
+      },
+      {
+        "feature": "txn_count_24h",
+        "mean_abs_shap": 0.111819
+      },
+      {
+        "feature": "country_match_foreign",
+        "mean_abs_shap": 0.108778
+      },
+      {
+        "feature": "country_match_domestic",
+        "mean_abs_shap": 0.093129
+      },
+      {
+        "feature": "is_night",
+        "mean_abs_shap": 0.087816
+      },
+      {
+        "feature": "utilization",
+        "mean_abs_shap": 0.086787
+      },
+      {
+        "feature": "merchant_risk_score",
+        "mean_abs_shap": 0.083734
+      },
+      {
+        "feature": "amount_to_avg_ratio",
+        "mean_abs_shap": 0.078926
+      },
+      {
+        "feature": "channel_chip",
+        "mean_abs_shap": 0.072362
+      },
+      {
+        "feature": "channel_swipe",
+        "mean_abs_shap": 0.063697
+      },
+      {
+        "feature": "hour",
+        "mean_abs_shap": 0.061187
+      },
+      {
+        "feature": "distance_from_home_km",
+        "mean_abs_shap": 0.057015
+      },
+      {
+        "feature": "device_trust_new",
+        "mean_abs_shap": 0.056344
+      }
+    ]
+  },
+  "drift": {
+    "comparisons": [
+      {
+        "label": "stable_draw",
+        "n_reference": 4000,
+        "n_current": 4000,
+        "features": [
+          {
+            "feature": "amount",
+            "kind": "numeric",
+            "psi": 0.002162,
+            "ks": 0.01375
+          },
+          {
+            "feature": "hour",
+            "kind": "numeric",
+            "psi": 0.001909,
+            "ks": 0.01275
+          },
+          {
+            "feature": "account_age_days",
+            "kind": "numeric",
+            "psi": 0.005001,
+            "ks": 0.02025
+          },
+          {
+            "feature": "credit_limit",
+            "kind": "numeric",
+            "psi": 0.002331,
+            "ks": 0.019
+          },
+          {
+            "feature": "utilization",
+            "kind": "numeric",
+            "psi": 0.005399,
+            "ks": 0.02275
+          },
+          {
+            "feature": "txn_count_24h",
+            "kind": "numeric",
+            "psi": 0.001095,
+            "ks": 0.01
+          },
+          {
+            "feature": "avg_amount_30d",
+            "kind": "numeric",
+            "psi": 0.002798,
+            "ks": 0.01825
+          },
+          {
+            "feature": "days_since_last_txn",
+            "kind": "numeric",
+            "psi": 0.002315,
+            "ks": 0.0105
+          },
+          {
+            "feature": "distance_from_home_km",
+            "kind": "numeric",
+            "psi": 0.004067,
+            "ks": 0.0195
+          },
+          {
+            "feature": "merchant_risk_score",
+            "kind": "numeric",
+            "psi": 0.002284,
+            "ks": 0.012
+          },
+          {
+            "feature": "failed_attempts_24h",
+            "kind": "numeric",
+            "psi": 0.00041,
+            "ks": 0.0075
+          },
+          {
+            "feature": "merchant_category",
+            "kind": "categorical",
+            "psi": 0.003887,
+            "ks": null
+          },
+          {
+            "feature": "channel",
+            "kind": "categorical",
+            "psi": 0.000939,
+            "ks": null
+          },
+          {
+            "feature": "country_match",
+            "kind": "categorical",
+            "psi": 0.000502,
+            "ks": null
+          },
+          {
+            "feature": "device_trust",
+            "kind": "categorical",
+            "psi": 0.000928,
+            "ks": null
+          }
+        ],
+        "prediction_psi": 0.003953,
+        "prediction_ks": 0.014,
+        "decision": {
+          "retrain": false,
+          "reasons": [],
+          "flagged_features": [],
+          "prediction_psi": 0.003953
+        }
+      },
+      {
+        "label": "shifted_draw",
+        "n_reference": 4000,
+        "n_current": 4000,
+        "features": [
+          {
+            "feature": "amount",
+            "kind": "numeric",
+            "psi": 1.091261,
+            "ks": 0.41775
+          },
+          {
+            "feature": "hour",
+            "kind": "numeric",
+            "psi": 1.80906,
+            "ks": 0.40475
+          },
+          {
+            "feature": "account_age_days",
+            "kind": "numeric",
+            "psi": 0.005001,
+            "ks": 0.02025
+          },
+          {
+            "feature": "credit_limit",
+            "kind": "numeric",
+            "psi": 0.002331,
+            "ks": 0.019
+          },
+          {
+            "feature": "utilization",
+            "kind": "numeric",
+            "psi": 0.005399,
+            "ks": 0.02275
+          },
+          {
+            "feature": "txn_count_24h",
+            "kind": "numeric",
+            "psi": 13.030044,
+            "ks": 0.966
+          },
+          {
+            "feature": "avg_amount_30d",
+            "kind": "numeric",
+            "psi": 0.002798,
+            "ks": 0.01825
+          },
+          {
+            "feature": "days_since_last_txn",
+            "kind": "numeric",
+            "psi": 0.002315,
+            "ks": 0.0105
+          },
+          {
+            "feature": "distance_from_home_km",
+            "kind": "numeric",
+            "psi": 12.433835,
+            "ks": 0.952
+          },
+          {
+            "feature": "merchant_risk_score",
+            "kind": "numeric",
+            "psi": 11.009147,
+            "ks": 0.86875
+          },
+          {
+            "feature": "failed_attempts_24h",
+            "kind": "numeric",
+            "psi": 0.00041,
+            "ks": 0.0075
+          },
+          {
+            "feature": "merchant_category",
+            "kind": "categorical",
+            "psi": 0.003887,
+            "ks": null
+          },
+          {
+            "feature": "channel",
+            "kind": "categorical",
+            "psi": 0.38933,
+            "ks": null
+          },
+          {
+            "feature": "country_match",
+            "kind": "categorical",
+            "psi": 0.601559,
+            "ks": null
+          },
+          {
+            "feature": "device_trust",
+            "kind": "categorical",
+            "psi": 0.377574,
+            "ks": null
+          }
+        ],
+        "prediction_psi": 6.134762,
+        "prediction_ks": 0.81375,
+        "decision": {
+          "retrain": true,
+          "reasons": [
+            "8 features have PSI >= 0.2: amount, hour, txn_count_24h, distance_from_home_km, merchant_risk_score, channel, country_match, device_trust",
+            "prediction PSI 6.1348 >= 0.1"
+          ],
+          "flagged_features": [
+            "amount",
+            "hour",
+            "txn_count_24h",
+            "distance_from_home_km",
+            "merchant_risk_score",
+            "channel",
+            "country_match",
+            "device_trust"
+          ],
+          "prediction_psi": 6.134762
+        }
+      }
+    ]
+  },
+  "sample_request": {
+    "amount": 17.710345,
+    "hour": 12,
+    "account_age_days": 1300,
+    "credit_limit": 10000.0,
+    "utilization": 0.21233,
+    "txn_count_24h": 2,
+    "avg_amount_30d": 22.89892,
+    "days_since_last_txn": 0.272564,
+    "distance_from_home_km": 173.454951,
+    "merchant_risk_score": 0.235328,
+    "failed_attempts_24h": 0,
+    "merchant_category": "grocery",
+    "channel": "swipe",
+    "country_match": "domestic",
+    "device_trust": "new"
+  },
+  "sample_response": {
+    "fraud_probability": 0.009044,
+    "fraud_flag": false,
+    "threshold": 0.256165,
+    "model_name": "logistic_regression",
+    "model_version": "logistic_regression-20261120071250"
+  },
+  "sample_explanation": {
+    "base_value": -0.858522,
+    "contributions": [
+      {
+        "feature": "log_amount",
+        "shap_value": -0.742479,
+        "encoded_value": -0.990311
+      },
+      {
+        "feature": "device_trust_trusted",
+        "shap_value": 0.542777,
+        "encoded_value": 0.0
+      },
+      {
+        "feature": "device_trust_new",
+        "shap_value": 0.403902,
+        "encoded_value": 1.0
+      },
+      {
+        "feature": "channel_swipe",
+        "shap_value": -0.32648,
+        "encoded_value": 1.0
+      },
+      {
+        "feature": "channel_online",
+        "shap_value": -0.126843,
+        "encoded_value": 0.0
+      },
+      {
+        "feature": "txn_count_24h",
+        "shap_value": 0.09533,
+        "encoded_value": 0.812473
+      },
+      {
+        "feature": "merchant_risk_score",
+        "shap_value": 0.083844,
+        "encoded_value": 0.783778
+      },
+      {
+        "feature": "amount_to_avg_ratio",
+        "shap_value": -0.072846,
+        "encoded_value": -0.352512
+      }
+    ],
+    "space": "model_margin"
+  },
+  "artifacts": {
+    "model": "models/model.joblib",
+    "metrics": "reports/metrics.json",
+    "pr_curves": "reports/plots/pr_curves.png",
+    "calibration": "reports/plots/calibration.png",
+    "shap": "reports/plots/shap_summary.png"
+  },
+  "mlflow": {
+    "selected_run_id": "49fe7559f07b43e9abd657a0a85a3f5e",
+    "model_uri": "models:/m-9662271936424ee5b3dc1e265dfd0d71",
+    "registry_model": "payguard-fraud-detector",
+    "registry_version": "1",
+    "run_ids": {
+      "logistic_regression": "49fe7559f07b43e9abd657a0a85a3f5e",
+      "hist_gradient_boosting": "a5393a0f8e6a4f338a60ee594fc9881d",
+      "xgboost": "aa380c123fe14c138cb19c8bf00b7236"
+    }
+  }
+}
