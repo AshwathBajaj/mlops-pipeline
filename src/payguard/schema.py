@@ -1,42 +1,31 @@
-"""Column contract shared by generation, validation, training, and serving."""
+"""Column contract shared by loading, validation, training, and serving.
+
+The contract matches the ULB credit-card fraud table redistributed by OpenML
+as dataset 1597: Time, Amount, the PCA components V1-V28, and a fraud label.
+"""
 
 from __future__ import annotations
 
 ID_COLUMN = "transaction_id"
 TARGET_COLUMN = "fraud"
 
-MERCHANT_CATEGORIES: tuple[str, ...] = (
-    "grocery",
-    "fuel",
-    "dining",
-    "electronics",
-    "travel",
-    "jewelry",
-    "digital_goods",
-    "gambling",
-)
-CHANNELS: tuple[str, ...] = ("chip", "contactless", "swipe", "online")
-COUNTRY_MATCH: tuple[str, ...] = ("domestic", "foreign")
-DEVICE_TRUST: tuple[str, ...] = ("trusted", "new", "shared")
-
-NUMERIC_COLUMNS: tuple[str, ...] = (
-    "amount",
-    "hour",
-    "account_age_days",
-    "credit_limit",
-    "utilization",
-    "txn_count_24h",
-    "avg_amount_30d",
-    "days_since_last_txn",
-    "distance_from_home_km",
-    "merchant_risk_score",
-    "failed_attempts_24h",
-)
-CATEGORICAL_COLUMNS: tuple[str, ...] = (
-    "merchant_category",
-    "channel",
-    "country_match",
-    "device_trust",
-)
-RAW_FEATURE_COLUMNS: tuple[str, ...] = NUMERIC_COLUMNS + CATEGORICAL_COLUMNS
+PCA_COLUMNS: tuple[str, ...] = tuple(f"V{index}" for index in range(1, 29))
+NUMERIC_COLUMNS: tuple[str, ...] = ("Time", "Amount", *PCA_COLUMNS)
+CATEGORICAL_COLUMNS: tuple[str, ...] = ()
+RAW_FEATURE_COLUMNS: tuple[str, ...] = NUMERIC_COLUMNS
 ALL_COLUMNS: tuple[str, ...] = (ID_COLUMN, *RAW_FEATURE_COLUMNS, TARGET_COLUMN)
+
+OPENML_DATA_ID = 1597
+OPENML_NAME = "creditcard"
+OPENML_URL = "https://www.openml.org/d/1597"
+OPENML_PARQUET_URL = "https://data.openml.org/datasets/0000/1597/dataset_1597.pq"
+DATASET_LICENCE = "Public"
+DATASET_ORIGIN = (
+    "ULB Machine Learning Group and Worldline. European cardholders, September 2013. "
+    "Two days of transactions. V1-V28 are principal components; Time and Amount are raw."
+)
+DATASET_CITATION = (
+    "Andrea Dal Pozzolo, Olivier Caelen, Reid A. Johnson and Gianluca Bontempi. "
+    "Calibrating Probability with Undersampling for Unbalanced Classification. "
+    "In Symposium on Computational Intelligence and Data Mining (CIDM), IEEE, 2015."
+)

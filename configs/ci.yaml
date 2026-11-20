@@ -1,13 +1,11 @@
 seed: 7
 
 data:
-  source: synthetic
-  n_rows: 2500
-  target_fraud_rate: 0.04
+  # Stratified subset of OpenML 1597, committed so CI does not download.
+  # Not the source of the README metrics.
+  source: csv
+  path: data/samples/creditcard_ci.csv
   output_path: data/raw/transactions_ci.csv
-  url: https://example.invalid/payguard-transactions.csv
-  download_path: data/raw/downloaded.csv
-  timeout_seconds: 5
 
 split:
   test_size: 0.25
@@ -44,7 +42,7 @@ monitoring:
   feature_psi_threshold: 0.2
   prediction_psi_threshold: 0.1
   min_features_drifted: 2
-  drift_rows: 600
+  drift_rows: 400
 
 output:
   model_path: models/ci/model.joblib

@@ -1,66 +1,59 @@
-"""Request and response models for the scoring API."""
+"""Request and response models for the scoring API.
+
+A request is one row of the ULB credit-card table: Time, Amount, and V1-V28.
+The label is not part of the request.
+"""
 
 from __future__ import annotations
-
-from typing import Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
 from payguard import __version__
-
-MerchantCategory = Literal[
-    "grocery",
-    "fuel",
-    "dining",
-    "electronics",
-    "travel",
-    "jewelry",
-    "digital_goods",
-    "gambling",
-]
-Channel = Literal["chip", "contactless", "swipe", "online"]
-CountryMatch = Literal["domestic", "foreign"]
-DeviceTrust = Literal["trusted", "new", "shared"]
+from payguard.schema import PCA_COLUMNS
 
 
 class Transaction(BaseModel):
     model_config = ConfigDict(
+        extra="forbid",
         json_schema_extra={
             "example": {
-                "amount": 186.4,
-                "hour": 2,
-                "account_age_days": 18,
-                "credit_limit": 2500,
-                "utilization": 0.55,
-                "txn_count_24h": 7,
-                "avg_amount_30d": 24.0,
-                "days_since_last_txn": 0.3,
-                "distance_from_home_km": 820,
-                "merchant_risk_score": 0.62,
-                "failed_attempts_24h": 2,
-                "merchant_category": "electronics",
-                "channel": "online",
-                "country_match": "foreign",
-                "device_trust": "new",
+                "Time": 40000.0,
+                "Amount": 12.5,
+                **{name: 0.0 for name in PCA_COLUMNS},
             }
-        }
+        },
     )
 
-    amount: float = Field(gt=0, lt=1_000_000)
-    hour: int = Field(ge=0, le=23)
-    account_age_days: int = Field(ge=0, le=20_000)
-    credit_limit: float = Field(gt=0)
-    utilization: float = Field(ge=0, le=1)
-    txn_count_24h: int = Field(ge=0, le=100)
-    avg_amount_30d: float = Field(ge=0)
-    days_since_last_txn: float = Field(ge=0)
-    distance_from_home_km: float = Field(ge=0)
-    merchant_risk_score: float = Field(ge=0, le=1)
-    failed_attempts_24h: int = Field(ge=0, le=50)
-    merchant_category: MerchantCategory
-    channel: Channel
-    country_match: CountryMatch
-    device_trust: DeviceTrust
+    Time: float = Field(ge=0)
+    Amount: float = Field(ge=0)
+    V1: float
+    V2: float
+    V3: float
+    V4: float
+    V5: float
+    V6: float
+    V7: float
+    V8: float
+    V9: float
+    V10: float
+    V11: float
+    V12: float
+    V13: float
+    V14: float
+    V15: float
+    V16: float
+    V17: float
+    V18: float
+    V19: float
+    V20: float
+    V21: float
+    V22: float
+    V23: float
+    V24: float
+    V25: float
+    V26: float
+    V27: float
+    V28: float
 
 
 class PredictionResponse(BaseModel):

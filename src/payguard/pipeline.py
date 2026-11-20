@@ -18,8 +18,7 @@ import pandas as pd
 from mlflow.tracking import MlflowClient
 
 from payguard.config import load_config
-from payguard.data.generate import generate_transactions
-from payguard.data.load import load_transactions
+from payguard.data.load import dataset_provenance, load_transactions
 from payguard.data.validate import validate_transactions
 from payguard.explain.shap_report import explain_encoded_row, global_shap
 from payguard.monitoring.drift import (
@@ -79,19 +78,19 @@ def _score(artifact: dict[str, Any], frame: pd.DataFrame) -> np.ndarray:
 
 
 def run_drift(
-    cfg: dict[str, Any], artifact: dict[str, Any], reference: pd.DataFrame
+    cfg: dict[str, Any],
+    artifact: dict[str, Any],
+    reference: pd.DataFrame,
+    population: pd.DataFrame,
 ) -> dict[str, Any]:
     monitoring = cfg["monitoring"]
     rows = int(monitoring["drift_rows"])
     seed = int(cfg["seed"])
-    stable = validate_transactions(
-        generate_transactions(
-            n_rows=rows,
-            seed=seed + 101,
-            target_fraud_rate=float(cfg["data"]["target_fraud_rate"]),
-        )
-    )
-    shifted = validate_transactions(simulate_population_shift(stable, seed + 7))
+    # A second draw from the same table is the negative control. Comparing the
+    # training rows to the synthetic generator would look like drift even when
+    # nothing in the real population moved.
+    stable = population.sample(n=min(len(population), rows), random_state=seed + 101)
+    shifted = simulate_population_shift(stable, seed + 7)
     reference_sample = reference.sample(n=min(len(reference), max(rows, 1000)), random_state=seed)
     reference_scores = _score(artifact, reference_sample)
     reports = [
@@ -150,6 +149,7 @@ def _print_table(summary: dict[str, Any]) -> None:
 def run_pipeline(cfg: dict[str, Any]) -> dict[str, Any]:
     frame = prepare_data(cfg)
     training = run_training(cfg, frame)
+    training["dataset"].update(dataset_provenance(str(cfg["data"]["source"]), frame))
     selected_name = training["selected_model"]
     fitted = training["artifact"]
     background_encoded = encode_frame(fitted["preprocessor"], training["reference_frame"])
@@ -217,7 +217,7 @@ def run_pipeline(cfg: dict[str, Any]) -> dict[str, Any]:
     model_path.parent.mkdir(parents=True, exist_ok=True)
     joblib.dump(bundle, model_path)
 
-    drift = run_drift(cfg, bundle, training["reference_frame"])
+    drift = run_drift(cfg, bundle, training["reference_frame"], training["test_frame"])
     metrics_path = Path(cfg["output"]["metrics_path"])
     shap_path = Path(cfg["output"]["shap_path"])
     sample_request = _plain_row(sample_row)
@@ -307,7 +307,7 @@ def main() -> None:
     frame = prepare_data(cfg)
     features = frame.loc[:, list(RAW_FEATURE_COLUMNS)]
     if args.stage == "drift":
-        run_drift(cfg, bundle, features)
+        run_drift(cfg, bundle, features, features)
         return
     shap_summary = global_shap(
         bundle["model"],

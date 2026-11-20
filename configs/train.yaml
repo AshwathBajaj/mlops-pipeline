@@ -1,39 +1,39 @@
 seed: 42
 
 data:
-  source: synthetic
-  n_rows: 30000
+  # Full ULB credit-card table via OpenML. No login. The published metrics
+  # come from this source. A failed download uses the committed CI sample,
+  # then the synthetic generator.
+  source: openml
+  openml_id: 1597
+  fallback_csv: data/samples/creditcard_ci.csv
+  cache_path: data/raw/creditcard.pq
+  output_path: data/raw/creditcard.csv
+  n_rows: 2000
   target_fraud_rate: 0.02
-  output_path: data/raw/transactions.csv
-  # Optional. source: url tries this download, then falls back to synthetic.
-  url: https://example.invalid/payguard-transactions.csv
-  download_path: data/raw/downloaded.csv
-  timeout_seconds: 20
 
 split:
   test_size: 0.2
 
 training:
   cv_folds: 5
-  # 0.40 is the review-queue bar. A 0.70 bar is reachable on this data only in
-  # the extreme tail, where a few dozen alerts make the threshold unstable.
-  precision_target: 0.40
+  precision_target: 0.50
   shap_sample_size: 1500
   models:
     logistic_regression:
       C: 1.0
-      max_iter: 400
+      max_iter: 500
     hist_gradient_boosting:
-      max_iter: 120
+      max_iter: 150
       learning_rate: 0.08
       max_depth: 6
-      min_samples_leaf: 30
+      min_samples_leaf: 40
     xgboost:
-      n_estimators: 160
+      n_estimators: 200
       max_depth: 4
       learning_rate: 0.08
       subsample: 0.9
-      colsample_bytree: 0.9
+      colsample_bytree: 0.8
       min_child_weight: 4
 
 mlflow:

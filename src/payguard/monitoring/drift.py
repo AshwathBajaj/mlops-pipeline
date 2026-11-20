@@ -136,19 +136,12 @@ def simulate_population_shift(frame: pd.DataFrame, seed: int) -> pd.DataFrame:
     """
     shifted = frame.copy()
     rng = np.random.default_rng(seed)
-    shifted["amount"] = shifted["amount"].astype(float) * rng.uniform(1.7, 2.6, size=len(shifted))
-    shifted["merchant_risk_score"] = np.clip(
-        shifted["merchant_risk_score"].astype(float) + 0.28, 0.0, 1.0
-    )
-    shifted["distance_from_home_km"] = shifted["distance_from_home_km"].astype(float) + 380.0
-    shifted["txn_count_24h"] = np.clip(shifted["txn_count_24h"].astype(int) + 4, 0, 100)
-    channel_flip = rng.random(len(shifted)) < 0.40
-    shifted.loc[channel_flip, "channel"] = "online"
-    country_flip = rng.random(len(shifted)) < 0.35
-    shifted.loc[country_flip, "country_match"] = "foreign"
-    device_flip = rng.random(len(shifted)) < 0.25
-    shifted.loc[device_flip, "device_trust"] = "new"
-    shifted["hour"] = (shifted["hour"].astype(int) + 8) % 24
+    shifted["Amount"] = shifted["Amount"].astype(float) * rng.uniform(2.0, 3.5, size=len(shifted))
+    shifted["Time"] = shifted["Time"].astype(float) + 12.0 * 3600.0
+    for column, delta in (("V1", 2.5), ("V2", -2.0), ("V3", 1.8), ("V4", 3.0), ("V14", -4.0)):
+        if column in shifted.columns:
+            shifted[column] = shifted[column].astype(float) + delta
+    del rng
     return shifted
 
 

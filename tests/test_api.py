@@ -1,31 +1,14 @@
 from __future__ import annotations
 
-from typing import get_args
-
 from fastapi.testclient import TestClient
 
-from payguard.schema import (
-    CATEGORICAL_COLUMNS,
-    CHANNELS,
-    COUNTRY_MATCH,
-    DEVICE_TRUST,
-    MERCHANT_CATEGORIES,
-)
+from payguard.schema import RAW_FEATURE_COLUMNS
 from payguard.serving.app import create_app
-from payguard.serving.schemas import Channel, CountryMatch, DeviceTrust, MerchantCategory
+from payguard.serving.schemas import Transaction
 
 
-def test_schema_literals_match_the_training_contract() -> None:
-    assert set(get_args(MerchantCategory)) == set(MERCHANT_CATEGORIES)
-    assert set(get_args(Channel)) == set(CHANNELS)
-    assert set(get_args(CountryMatch)) == set(COUNTRY_MATCH)
-    assert set(get_args(DeviceTrust)) == set(DEVICE_TRUST)
-    assert set(CATEGORICAL_COLUMNS) == {
-        "merchant_category",
-        "channel",
-        "country_match",
-        "device_trust",
-    }
+def test_request_fields_match_the_training_contract() -> None:
+    assert set(Transaction.model_fields) == set(RAW_FEATURE_COLUMNS)
 
 
 def test_health_is_degraded_without_a_model(tmp_path, suspicious_transaction: dict) -> None:
@@ -83,7 +66,7 @@ def test_invalid_payloads_are_rejected(trained: dict, suspicious_transaction: di
     app = create_app(trained["model_path"])
     with TestClient(app) as client:
         negative = dict(suspicious_transaction)
-        negative["amount"] = -1
+        negative["Amount"] = -1
         assert client.post("/predict", json=negative).status_code == 422
 
         unknown = dict(suspicious_transaction)
@@ -94,5 +77,5 @@ def test_invalid_payloads_are_rejected(trained: dict, suspicious_transaction: di
         assert empty.status_code == 422
 
         missing = dict(suspicious_transaction)
-        del missing["hour"]
+        del missing["Time"]
         assert client.post("/predict", json=missing).status_code == 422

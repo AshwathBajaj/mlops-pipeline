@@ -10,6 +10,7 @@ import pytest
 
 from payguard.data.generate import generate_transactions
 from payguard.data.validate import validate_transactions
+from payguard.schema import RAW_FEATURE_COLUMNS
 from payguard.scoring import encode_frame
 from payguard.training.train import run_training
 
@@ -115,43 +116,30 @@ def trained(tmp_path_factory: pytest.TempPathFactory) -> dict:
     }
 
 
-@pytest.fixture
-def benign_transaction() -> dict:
-    return {
-        "amount": 18.0,
-        "hour": 14,
-        "account_age_days": 2400,
-        "credit_limit": 10000,
-        "utilization": 0.12,
-        "txn_count_24h": 1,
-        "avg_amount_30d": 22.0,
-        "days_since_last_txn": 3.0,
-        "distance_from_home_km": 4.0,
-        "merchant_risk_score": 0.04,
-        "failed_attempts_24h": 0,
-        "merchant_category": "grocery",
-        "channel": "chip",
-        "country_match": "domestic",
-        "device_trust": "trusted",
-    }
+def _feature_row(seed: int) -> dict[str, float]:
+    frame = generate_transactions(1, seed=seed, target_fraud_rate=0.02)
+    row = frame.iloc[0]
+    return {column: float(row[column]) for column in RAW_FEATURE_COLUMNS}
 
 
 @pytest.fixture
-def suspicious_transaction() -> dict:
-    return {
-        "amount": 420.0,
-        "hour": 2,
-        "account_age_days": 12,
-        "credit_limit": 1500,
-        "utilization": 0.93,
-        "txn_count_24h": 8,
-        "avg_amount_30d": 20.0,
-        "days_since_last_txn": 0.2,
-        "distance_from_home_km": 900.0,
-        "merchant_risk_score": 0.72,
-        "failed_attempts_24h": 3,
-        "merchant_category": "gambling",
-        "channel": "online",
-        "country_match": "foreign",
-        "device_trust": "new",
-    }
+def benign_transaction() -> dict[str, float]:
+    row = _feature_row(1)
+    row["Time"] = 14.0 * 3600.0
+    row["Amount"] = 18.0
+    for column in RAW_FEATURE_COLUMNS:
+        if column.startswith("V"):
+            row[column] = 0.0
+    return row
+
+
+@pytest.fixture
+def suspicious_transaction() -> dict[str, float]:
+    row = _feature_row(1)
+    row["Time"] = 2.0 * 3600.0
+    row["Amount"] = 800.0
+    row["V14"] = -8.0
+    row["V4"] = 6.0
+    row["V12"] = -6.0
+    row["V11"] = 4.0
+    return row

@@ -1,8 +1,7 @@
-"""Leakage-safe feature pipeline.
+"""Leakage-safe feature pipeline for the ULB credit-card columns.
 
-TransactionFeatureBuilder only adds row-wise transforms. Anything that would
-need a training-set statistic (scaling, imputation, one-hot categories) sits
-in the ColumnTransformer and is fit inside each CV fold.
+TransactionFeatureBuilder only adds row-wise transforms of Time and Amount.
+Scaling is fit inside each CV fold, in the ColumnTransformer.
 """
 
 from __future__ import annotations
@@ -13,23 +12,16 @@ from sklearn.base import BaseEstimator, TransformerMixin
 from sklearn.compose import ColumnTransformer
 from sklearn.impute import SimpleImputer
 from sklearn.pipeline import Pipeline
-from sklearn.preprocessing import OneHotEncoder, StandardScaler
+from sklearn.preprocessing import StandardScaler
 
-from payguard.schema import CATEGORICAL_COLUMNS, NUMERIC_COLUMNS, RAW_FEATURE_COLUMNS
+from payguard.schema import NUMERIC_COLUMNS, RAW_FEATURE_COLUMNS
 
-ENGINEERED_COLUMNS: tuple[str, ...] = (
-    "log_amount",
-    "amount_to_avg_ratio",
-    "is_night",
-    "is_high_velocity",
-    "is_foreign_online",
-    "is_new_device_night",
-)
+ENGINEERED_COLUMNS: tuple[str, ...] = ("log_amount", "hour", "is_night")
 MODEL_NUMERIC_COLUMNS: tuple[str, ...] = NUMERIC_COLUMNS + ENGINEERED_COLUMNS
 
 
 class TransactionFeatureBuilder(BaseEstimator, TransformerMixin):
-    """Add the interactions and ratios the linear baseline is allowed to see."""
+    """Add log amount and the hour of day implied by Time."""
 
     def fit(
         self, X: pd.DataFrame, y: pd.Series | np.ndarray | None = None
@@ -45,18 +37,10 @@ class TransactionFeatureBuilder(BaseEstimator, TransformerMixin):
         missing = [column for column in RAW_FEATURE_COLUMNS if column not in frame.columns]
         if missing:
             raise ValueError(f"missing columns: {missing}")
-        amount = frame["amount"].astype(float)
-        frame["log_amount"] = np.log1p(amount)
-        frame["amount_to_avg_ratio"] = amount / (frame["avg_amount_30d"].astype(float) + 1.0)
-        hour = frame["hour"].astype(int)
-        night = ((hour <= 5) | (hour >= 23)).astype(float)
-        frame["is_night"] = night
-        frame["is_high_velocity"] = (frame["txn_count_24h"].astype(float) >= 6).astype(float)
-        foreign = (frame["country_match"].astype(str) == "foreign").astype(float)
-        online = (frame["channel"].astype(str) == "online").astype(float)
-        new_device = (frame["device_trust"].astype(str) == "new").astype(float)
-        frame["is_foreign_online"] = foreign * online
-        frame["is_new_device_night"] = new_device * night
+        frame["log_amount"] = np.log1p(frame["Amount"].astype(float))
+        frame["hour"] = (frame["Time"].astype(float) % 86400.0) / 3600.0
+        hour = frame["hour"]
+        frame["is_night"] = ((hour <= 5.0) | (hour >= 23.0)).astype(float)
         return frame
 
     def get_feature_names_out(self, input_features: list[str] | None = None) -> np.ndarray:
@@ -71,20 +55,8 @@ def make_preprocessor() -> Pipeline:
             ("scale", StandardScaler()),
         ]
     )
-    categorical = Pipeline(
-        steps=[
-            ("impute", SimpleImputer(strategy="most_frequent")),
-            (
-                "onehot",
-                OneHotEncoder(handle_unknown="ignore", sparse_output=False),
-            ),
-        ]
-    )
     encoder = ColumnTransformer(
-        transformers=[
-            ("num", numeric, list(MODEL_NUMERIC_COLUMNS)),
-            ("cat", categorical, list(CATEGORICAL_COLUMNS)),
-        ],
+        transformers=[("num", numeric, list(MODEL_NUMERIC_COLUMNS))],
         remainder="drop",
         verbose_feature_names_out=False,
     )

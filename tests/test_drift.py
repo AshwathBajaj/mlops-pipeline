@@ -70,10 +70,9 @@ def test_prediction_psi_alone_can_trigger() -> None:
     assert decision["reasons"]
 
 
-def test_simulated_shift_moves_amount_and_channel() -> None:
+def test_simulated_shift_moves_amount_and_components() -> None:
     frame = generate_transactions(500, seed=12, target_fraud_rate=0.04)
     shifted = simulate_population_shift(frame, seed=3)
-    assert shifted["amount"].mean() > frame["amount"].mean() * 1.5
-    assert (shifted["channel"] == "online").mean() > (frame["channel"] == "online").mean()
-    assert shifted["merchant_risk_score"].between(0, 1).all()
-    assert shifted["hour"].between(0, 23).all()
+    assert shifted["Amount"].mean() > frame["Amount"].mean() * 1.5
+    assert shifted["V14"].mean() < frame["V14"].mean() - 3
+    assert shifted["Time"].mean() > frame["Time"].mean()
