@@ -1,0 +1,737 @@
+{
+  "generated_at": "2026-11-20T07:52:53.171794+00:00",
+  "model_version": "xgboost-20261120075253",
+  "seed": 42,
+  "data_source": "openml",
+  "selected_model": "xgboost",
+  "selection_metric": "cv_pr_auc_oof",
+  "precision_target": 0.5,
+  "dataset": {
+    "n_rows": 284807,
+    "n_train": 227845,
+    "n_test": 56962,
+    "train_fraud_rate": 0.001729,
+    "test_fraud_rate": 0.00172,
+    "fraud_rate": 0.001727,
+    "prevalence_baseline_pr_auc": 0.00172,
+    "source": "openml",
+    "n_features": 30,
+    "fraud_count": 492,
+    "legitimate_count": 284315,
+    "feature_names": [
+      "Time",
+      "Amount",
+      "V1",
+      "V2",
+      "V3",
+      "V4",
+      "V5",
+      "V6",
+      "V7",
+      "V8",
+      "V9",
+      "V10",
+      "V11",
+      "V12",
+      "V13",
+      "V14",
+      "V15",
+      "V16",
+      "V17",
+      "V18",
+      "V19",
+      "V20",
+      "V21",
+      "V22",
+      "V23",
+      "V24",
+      "V25",
+      "V26",
+      "V27",
+      "V28"
+    ],
+    "name": "creditcard",
+    "openml_id": 1597,
+    "openml_url": "https://www.openml.org/d/1597",
+    "licence": "Public",
+    "origin": "ULB Machine Learning Group and Worldline. European cardholders, September 2013. Two days of transactions. V1-V28 are principal components; Time and Amount are raw.",
+    "citation": "Andrea Dal Pozzolo, Olivier Caelen, Reid A. Johnson and Gianluca Bontempi. Calibrating Probability with Undersampling for Unbalanced Classification. In Symposium on Computational Intelligence and Data Mining (CIDM), IEEE, 2015.",
+    "distribution": "OpenML dataset 1597 parquet file https://data.openml.org/datasets/0000/1597/dataset_1597.pq. sklearn fetch_openml is attempted if that download fails."
+  },
+  "models": {
+    "logistic_regression": {
+      "name": "logistic_regression",
+      "cv_pr_auc_mean": 0.749122,
+      "cv_pr_auc_std": 0.053335,
+      "cv_roc_auc_mean": 0.984209,
+      "cv_pr_auc_oof": 0.746236,
+      "cv_roc_auc_oof": 0.983258,
+      "cv_brier_raw": 0.023303,
+      "cv_brier_calibrated": 0.000635,
+      "cv_ece_raw": 0.067578,
+      "cv_ece_calibrated": 0.0001,
+      "precision_target": 0.5,
+      "precision_target_achieved": true,
+      "oof_threshold": 0.015725,
+      "oof_precision": 0.539088,
+      "oof_recall": 0.840102,
+      "oof_flag_rate": 0.002695,
+      "oof_tp": 331,
+      "oof_fp": 283,
+      "test_pr_auc": 0.723575,
+      "test_roc_auc": 0.972518,
+      "test_brier_raw": 0.024,
+      "test_brier_calibrated": 0.00062,
+      "test_ece_raw": 0.070299,
+      "test_ece_calibrated": 0.000181,
+      "test_precision": 0.49711,
+      "test_recall": 0.877551,
+      "test_flag_rate": 0.003037,
+      "test_tp": 86,
+      "test_fp": 87,
+      "test_fn": 12,
+      "test_tn": 56777
+    },
+    "hist_gradient_boosting": {
+      "name": "hist_gradient_boosting",
+      "cv_pr_auc_mean": 0.775648,
+      "cv_pr_auc_std": 0.010246,
+      "cv_roc_auc_mean": 0.971354,
+      "cv_pr_auc_oof": 0.756081,
+      "cv_roc_auc_oof": 0.961299,
+      "cv_brier_raw": 0.003283,
+      "cv_brier_calibrated": 0.000583,
+      "cv_ece_raw": 0.030393,
+      "cv_ece_calibrated": 0.000145,
+      "precision_target": 0.5,
+      "precision_target_achieved": true,
+      "oof_threshold": 0.039982,
+      "oof_precision": 0.5,
+      "oof_recall": 0.837563,
+      "oof_flag_rate": 0.002897,
+      "oof_tp": 330,
+      "oof_fp": 330,
+      "test_pr_auc": 0.726344,
+      "test_roc_auc": 0.968973,
+      "test_brier_raw": 0.006264,
+      "test_brier_calibrated": 0.000708,
+      "test_ece_raw": 0.053482,
+      "test_ece_calibrated": 0.000932,
+      "test_precision": 0.330769,
+      "test_recall": 0.877551,
+      "test_flag_rate": 0.004564,
+      "test_tp": 86,
+      "test_fp": 174,
+      "test_fn": 12,
+      "test_tn": 56690
+    },
+    "xgboost": {
+      "name": "xgboost",
+      "cv_pr_auc_mean": 0.836537,
+      "cv_pr_auc_std": 0.023341,
+      "cv_roc_auc_mean": 0.98305,
+      "cv_pr_auc_oof": 0.834388,
+      "cv_roc_auc_oof": 0.981338,
+      "cv_brier_raw": 0.00092,
+      "cv_brier_calibrated": 0.000458,
+      "cv_ece_raw": 0.002624,
+      "cv_ece_calibrated": 5.9e-05,
+      "precision_target": 0.5,
+      "precision_target_achieved": true,
+      "oof_threshold": 0.020246,
+      "oof_precision": 0.500747,
+      "oof_recall": 0.850254,
+      "oof_flag_rate": 0.002936,
+      "oof_tp": 335,
+      "oof_fp": 334,
+      "test_pr_auc": 0.850002,
+      "test_roc_auc": 0.981867,
+      "test_brier_raw": 0.001447,
+      "test_brier_calibrated": 0.000506,
+      "test_ece_raw": 0.004797,
+      "test_ece_calibrated": 0.000425,
+      "test_precision": 0.359504,
+      "test_recall": 0.887755,
+      "test_flag_rate": 0.004248,
+      "test_tp": 87,
+      "test_fp": 155,
+      "test_fn": 11,
+      "test_tn": 56709
+    }
+  },
+  "shap": {
+    "sample_size": 1500,
+    "base_value": 0.639197,
+    "space": "model_margin",
+    "top_features": [
+      {
+        "feature": "V14",
+        "mean_abs_shap": 1.651425
+      },
+      {
+        "feature": "V4",
+        "mean_abs_shap": 1.523425
+      },
+      {
+        "feature": "V10",
+        "mean_abs_shap": 0.6692
+      },
+      {
+        "feature": "V12",
+        "mean_abs_shap": 0.648546
+      },
+      {
+        "feature": "V3",
+        "mean_abs_shap": 0.392063
+      },
+      {
+        "feature": "V8",
+        "mean_abs_shap": 0.362556
+      },
+      {
+        "feature": "V19",
+        "mean_abs_shap": 0.316843
+      },
+      {
+        "feature": "V11",
+        "mean_abs_shap": 0.313276
+      },
+      {
+        "feature": "V26",
+        "mean_abs_shap": 0.276471
+      },
+      {
+        "feature": "hour",
+        "mean_abs_shap": 0.264034
+      },
+      {
+        "feature": "V18",
+        "mean_abs_shap": 0.261192
+      },
+      {
+        "feature": "V15",
+        "mean_abs_shap": 0.252924
+      },
+      {
+        "feature": "V16",
+        "mean_abs_shap": 0.252718
+      },
+      {
+        "feature": "Amount",
+        "mean_abs_shap": 0.228996
+      },
+      {
+        "feature": "V13",
+        "mean_abs_shap": 0.221924
+      }
+    ]
+  },
+  "drift": {
+    "comparisons": [
+      {
+        "label": "stable_draw",
+        "n_reference": 4000,
+        "n_current": 4000,
+        "features": [
+          {
+            "feature": "Time",
+            "kind": "numeric",
+            "psi": 0.006532,
+            "ks": 0.02425
+          },
+          {
+            "feature": "Amount",
+            "kind": "numeric",
+            "psi": 0.003241,
+            "ks": 0.01925
+          },
+          {
+            "feature": "V1",
+            "kind": "numeric",
+            "psi": 0.005495,
+            "ks": 0.015
+          },
+          {
+            "feature": "V2",
+            "kind": "numeric",
+            "psi": 0.002979,
+            "ks": 0.0135
+          },
+          {
+            "feature": "V3",
+            "kind": "numeric",
+            "psi": 0.004792,
+            "ks": 0.019
+          },
+          {
+            "feature": "V4",
+            "kind": "numeric",
+            "psi": 0.006203,
+            "ks": 0.0185
+          },
+          {
+            "feature": "V5",
+            "kind": "numeric",
+            "psi": 0.003926,
+            "ks": 0.01975
+          },
+          {
+            "feature": "V6",
+            "kind": "numeric",
+            "psi": 0.002682,
+            "ks": 0.02225
+          },
+          {
+            "feature": "V7",
+            "kind": "numeric",
+            "psi": 0.00412,
+            "ks": 0.028
+          },
+          {
+            "feature": "V8",
+            "kind": "numeric",
+            "psi": 0.007562,
+            "ks": 0.0165
+          },
+          {
+            "feature": "V9",
+            "kind": "numeric",
+            "psi": 0.001338,
+            "ks": 0.0105
+          },
+          {
+            "feature": "V10",
+            "kind": "numeric",
+            "psi": 0.004553,
+            "ks": 0.017
+          },
+          {
+            "feature": "V11",
+            "kind": "numeric",
+            "psi": 0.005394,
+            "ks": 0.0195
+          },
+          {
+            "feature": "V12",
+            "kind": "numeric",
+            "psi": 0.007322,
+            "ks": 0.02775
+          },
+          {
+            "feature": "V13",
+            "kind": "numeric",
+            "psi": 0.003409,
+            "ks": 0.016
+          },
+          {
+            "feature": "V14",
+            "kind": "numeric",
+            "psi": 0.008623,
+            "ks": 0.01425
+          },
+          {
+            "feature": "V15",
+            "kind": "numeric",
+            "psi": 0.007997,
+            "ks": 0.0305
+          },
+          {
+            "feature": "V16",
+            "kind": "numeric",
+            "psi": 0.006461,
+            "ks": 0.025
+          },
+          {
+            "feature": "V17",
+            "kind": "numeric",
+            "psi": 0.003294,
+            "ks": 0.017
+          },
+          {
+            "feature": "V18",
+            "kind": "numeric",
+            "psi": 0.005037,
+            "ks": 0.01325
+          },
+          {
+            "feature": "V19",
+            "kind": "numeric",
+            "psi": 0.006087,
+            "ks": 0.0275
+          },
+          {
+            "feature": "V20",
+            "kind": "numeric",
+            "psi": 0.001794,
+            "ks": 0.0115
+          },
+          {
+            "feature": "V21",
+            "kind": "numeric",
+            "psi": 0.005668,
+            "ks": 0.018
+          },
+          {
+            "feature": "V22",
+            "kind": "numeric",
+            "psi": 0.000869,
+            "ks": 0.00775
+          },
+          {
+            "feature": "V23",
+            "kind": "numeric",
+            "psi": 0.004775,
+            "ks": 0.015
+          },
+          {
+            "feature": "V24",
+            "kind": "numeric",
+            "psi": 0.005335,
+            "ks": 0.01675
+          },
+          {
+            "feature": "V25",
+            "kind": "numeric",
+            "psi": 0.007951,
+            "ks": 0.01975
+          },
+          {
+            "feature": "V26",
+            "kind": "numeric",
+            "psi": 0.004463,
+            "ks": 0.018
+          },
+          {
+            "feature": "V27",
+            "kind": "numeric",
+            "psi": 0.009954,
+            "ks": 0.02275
+          },
+          {
+            "feature": "V28",
+            "kind": "numeric",
+            "psi": 0.003145,
+            "ks": 0.01525
+          }
+        ],
+        "prediction_psi": 0.006559,
+        "prediction_ks": 0.0145,
+        "decision": {
+          "retrain": false,
+          "reasons": [],
+          "flagged_features": [],
+          "prediction_psi": 0.006559
+        }
+      },
+      {
+        "label": "shifted_draw",
+        "n_reference": 4000,
+        "n_current": 4000,
+        "features": [
+          {
+            "feature": "Time",
+            "kind": "numeric",
+            "psi": 1.984868,
+            "ks": 0.3445
+          },
+          {
+            "feature": "Amount",
+            "kind": "numeric",
+            "psi": 0.309361,
+            "ks": 0.20225
+          },
+          {
+            "feature": "V1",
+            "kind": "numeric",
+            "psi": 0.793574,
+            "ks": 0.561
+          },
+          {
+            "feature": "V2",
+            "kind": "numeric",
+            "psi": 2.728209,
+            "ks": 0.6715
+          },
+          {
+            "feature": "V3",
+            "kind": "numeric",
+            "psi": 1.39601,
+            "ks": 0.504
+          },
+          {
+            "feature": "V4",
+            "kind": "numeric",
+            "psi": 4.9364,
+            "ks": 0.783
+          },
+          {
+            "feature": "V5",
+            "kind": "numeric",
+            "psi": 0.003926,
+            "ks": 0.01975
+          },
+          {
+            "feature": "V6",
+            "kind": "numeric",
+            "psi": 0.002682,
+            "ks": 0.02225
+          },
+          {
+            "feature": "V7",
+            "kind": "numeric",
+            "psi": 0.00412,
+            "ks": 0.028
+          },
+          {
+            "feature": "V8",
+            "kind": "numeric",
+            "psi": 0.007562,
+            "ks": 0.0165
+          },
+          {
+            "feature": "V9",
+            "kind": "numeric",
+            "psi": 0.001338,
+            "ks": 0.0105
+          },
+          {
+            "feature": "V10",
+            "kind": "numeric",
+            "psi": 0.004553,
+            "ks": 0.017
+          },
+          {
+            "feature": "V11",
+            "kind": "numeric",
+            "psi": 0.005394,
+            "ks": 0.0195
+          },
+          {
+            "feature": "V12",
+            "kind": "numeric",
+            "psi": 0.007322,
+            "ks": 0.02775
+          },
+          {
+            "feature": "V13",
+            "kind": "numeric",
+            "psi": 0.003409,
+            "ks": 0.016
+          },
+          {
+            "feature": "V14",
+            "kind": "numeric",
+            "psi": 11.08436,
+            "ks": 0.9655
+          },
+          {
+            "feature": "V15",
+            "kind": "numeric",
+            "psi": 0.007997,
+            "ks": 0.0305
+          },
+          {
+            "feature": "V16",
+            "kind": "numeric",
+            "psi": 0.006461,
+            "ks": 0.025
+          },
+          {
+            "feature": "V17",
+            "kind": "numeric",
+            "psi": 0.003294,
+            "ks": 0.017
+          },
+          {
+            "feature": "V18",
+            "kind": "numeric",
+            "psi": 0.005037,
+            "ks": 0.01325
+          },
+          {
+            "feature": "V19",
+            "kind": "numeric",
+            "psi": 0.006087,
+            "ks": 0.0275
+          },
+          {
+            "feature": "V20",
+            "kind": "numeric",
+            "psi": 0.001794,
+            "ks": 0.0115
+          },
+          {
+            "feature": "V21",
+            "kind": "numeric",
+            "psi": 0.005668,
+            "ks": 0.018
+          },
+          {
+            "feature": "V22",
+            "kind": "numeric",
+            "psi": 0.000869,
+            "ks": 0.00775
+          },
+          {
+            "feature": "V23",
+            "kind": "numeric",
+            "psi": 0.004775,
+            "ks": 0.015
+          },
+          {
+            "feature": "V24",
+            "kind": "numeric",
+            "psi": 0.005335,
+            "ks": 0.01675
+          },
+          {
+            "feature": "V25",
+            "kind": "numeric",
+            "psi": 0.007951,
+            "ks": 0.01975
+          },
+          {
+            "feature": "V26",
+            "kind": "numeric",
+            "psi": 0.004463,
+            "ks": 0.018
+          },
+          {
+            "feature": "V27",
+            "kind": "numeric",
+            "psi": 0.009954,
+            "ks": 0.02275
+          },
+          {
+            "feature": "V28",
+            "kind": "numeric",
+            "psi": 0.003145,
+            "ks": 0.01525
+          }
+        ],
+        "prediction_psi": 3.808311,
+        "prediction_ks": 0.652,
+        "decision": {
+          "retrain": true,
+          "reasons": [
+            "7 features have PSI >= 0.2: Time, Amount, V1, V2, V3, V4, V14",
+            "prediction PSI 3.8083 >= 0.1"
+          ],
+          "flagged_features": [
+            "Time",
+            "Amount",
+            "V1",
+            "V2",
+            "V3",
+            "V4",
+            "V14"
+          ],
+          "prediction_psi": 3.808311
+        }
+      }
+    ]
+  },
+  "sample_request": {
+    "Time": 160760.0,
+    "Amount": 23.0,
+    "V1": -0.674466,
+    "V2": 1.408105,
+    "V3": -1.110622,
+    "V4": -1.328366,
+    "V5": 1.388996,
+    "V6": -1.308439,
+    "V7": 1.885879,
+    "V8": -0.614233,
+    "V9": 0.311652,
+    "V10": 0.650757,
+    "V11": -0.857785,
+    "V12": -0.229961,
+    "V13": -0.199817,
+    "V14": 0.266371,
+    "V15": -0.046544,
+    "V16": -0.741398,
+    "V17": -0.605617,
+    "V18": -0.392568,
+    "V19": -0.162648,
+    "V20": 0.394322,
+    "V21": 0.080084,
+    "V22": 0.810034,
+    "V23": -0.224327,
+    "V24": 0.707899,
+    "V25": -0.135837,
+    "V26": 0.045102,
+    "V27": 0.533837,
+    "V28": 0.291319
+  },
+  "sample_response": {
+    "fraud_probability": 8.8e-05,
+    "fraud_flag": false,
+    "threshold": 0.020246,
+    "model_name": "xgboost",
+    "model_version": "xgboost-20261120075253"
+  },
+  "sample_explanation": {
+    "base_value": 0.639197,
+    "contributions": [
+      {
+        "feature": "V4",
+        "shap_value": -3.150656,
+        "encoded_value": -0.938188
+      },
+      {
+        "feature": "V14",
+        "shap_value": -1.070343,
+        "encoded_value": 0.278695
+      },
+      {
+        "feature": "V10",
+        "shap_value": -0.910695,
+        "encoded_value": 0.599445
+      },
+      {
+        "feature": "V8",
+        "shap_value": 0.637336,
+        "encoded_value": -0.515157
+      },
+      {
+        "feature": "V2",
+        "shap_value": -0.609485,
+        "encoded_value": 0.85416
+      },
+      {
+        "feature": "V11",
+        "shap_value": -0.52914,
+        "encoded_value": -0.840855
+      },
+      {
+        "feature": "V18",
+        "shap_value": -0.459024,
+        "encoded_value": -0.468039
+      },
+      {
+        "feature": "V6",
+        "shap_value": -0.451612,
+        "encoded_value": -0.982011
+      }
+    ],
+    "space": "model_margin"
+  },
+  "artifacts": {
+    "model": "models/model.joblib",
+    "metrics": "reports/metrics.json",
+    "pr_curves": "reports/plots/pr_curves.png",
+    "calibration": "reports/plots/calibration.png",
+    "shap": "reports/plots/shap_summary.png"
+  },
+  "mlflow": {
+    "selected_run_id": "5055c3c29a1b4f8d8841f1551c633a3e",
+    "model_uri": "models:/m-6f7418a380a840d68e900b534323f376",
+    "registry_model": "payguard-fraud-detector",
+    "registry_version": "1",
+    "run_ids": {
+      "logistic_regression": "1df01653a8294917b629b0d939cea8ce",
+      "hist_gradient_boosting": "38c421b2a9c94a09ac4ed0fa4185bbef",
+      "xgboost": "5055c3c29a1b4f8d8841f1551c633a3e"
+    }
+  }
+}

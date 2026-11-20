@@ -1,0 +1,7 @@
+{
+  "fraud_probability": 8.8e-05,
+  "fraud_flag": false,
+  "threshold": 0.020246,
+  "model_name": "xgboost",
+  "model_version": "xgboost-20261120075253"
+}

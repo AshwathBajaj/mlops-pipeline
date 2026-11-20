@@ -1,0 +1,46 @@
+{
+  "base_value": 0.639197,
+  "contributions": [
+    {
+      "feature": "V4",
+      "shap_value": -3.150656,
+      "encoded_value": -0.938188
+    },
+    {
+      "feature": "V14",
+      "shap_value": -1.070343,
+      "encoded_value": 0.278695
+    },
+    {
+      "feature": "V10",
+      "shap_value": -0.910695,
+      "encoded_value": 0.599445
+    },
+    {
+      "feature": "V8",
+      "shap_value": 0.637336,
+      "encoded_value": -0.515157
+    },
+    {
+      "feature": "V2",
+      "shap_value": -0.609485,
+      "encoded_value": 0.85416
+    },
+    {
+      "feature": "V11",
+      "shap_value": -0.52914,
+      "encoded_value": -0.840855
+    },
+    {
+      "feature": "V18",
+      "shap_value": -0.459024,
+      "encoded_value": -0.468039
+    },
+    {
+      "feature": "V6",
+      "shap_value": -0.451612,
+      "encoded_value": -0.982011
+    }
+  ],
+  "space": "model_margin"
+}

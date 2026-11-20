@@ -1,0 +1,405 @@
+{
+  "comparisons": [
+    {
+      "label": "stable_draw",
+      "n_reference": 4000,
+      "n_current": 4000,
+      "features": [
+        {
+          "feature": "Time",
+          "kind": "numeric",
+          "psi": 0.006532,
+          "ks": 0.02425
+        },
+        {
+          "feature": "Amount",
+          "kind": "numeric",
+          "psi": 0.003241,
+          "ks": 0.01925
+        },
+        {
+          "feature": "V1",
+          "kind": "numeric",
+          "psi": 0.005495,
+          "ks": 0.015
+        },
+        {
+          "feature": "V2",
+          "kind": "numeric",
+          "psi": 0.002979,
+          "ks": 0.0135
+        },
+        {
+          "feature": "V3",
+          "kind": "numeric",
+          "psi": 0.004792,
+          "ks": 0.019
+        },
+        {
+          "feature": "V4",
+          "kind": "numeric",
+          "psi": 0.006203,
+          "ks": 0.0185
+        },
+        {
+          "feature": "V5",
+          "kind": "numeric",
+          "psi": 0.003926,
+          "ks": 0.01975
+        },
+        {
+          "feature": "V6",
+          "kind": "numeric",
+          "psi": 0.002682,
+          "ks": 0.02225
+        },
+        {
+          "feature": "V7",
+          "kind": "numeric",
+          "psi": 0.00412,
+          "ks": 0.028
+        },
+        {
+          "feature": "V8",
+          "kind": "numeric",
+          "psi": 0.007562,
+          "ks": 0.0165
+        },
+        {
+          "feature": "V9",
+          "kind": "numeric",
+          "psi": 0.001338,
+          "ks": 0.0105
+        },
+        {
+          "feature": "V10",
+          "kind": "numeric",
+          "psi": 0.004553,
+          "ks": 0.017
+        },
+        {
+          "feature": "V11",
+          "kind": "numeric",
+          "psi": 0.005394,
+          "ks": 0.0195
+        },
+        {
+          "feature": "V12",
+          "kind": "numeric",
+          "psi": 0.007322,
+          "ks": 0.02775
+        },
+        {
+          "feature": "V13",
+          "kind": "numeric",
+          "psi": 0.003409,
+          "ks": 0.016
+        },
+        {
+          "feature": "V14",
+          "kind": "numeric",
+          "psi": 0.008623,
+          "ks": 0.01425
+        },
+        {
+          "feature": "V15",
+          "kind": "numeric",
+          "psi": 0.007997,
+          "ks": 0.0305
+        },
+        {
+          "feature": "V16",
+          "kind": "numeric",
+          "psi": 0.006461,
+          "ks": 0.025
+        },
+        {
+          "feature": "V17",
+          "kind": "numeric",
+          "psi": 0.003294,
+          "ks": 0.017
+        },
+        {
+          "feature": "V18",
+          "kind": "numeric",
+          "psi": 0.005037,
+          "ks": 0.01325
+        },
+        {
+          "feature": "V19",
+          "kind": "numeric",
+          "psi": 0.006087,
+          "ks": 0.0275
+        },
+        {
+          "feature": "V20",
+          "kind": "numeric",
+          "psi": 0.001794,
+          "ks": 0.0115
+        },
+        {
+          "feature": "V21",
+          "kind": "numeric",
+          "psi": 0.005668,
+          "ks": 0.018
+        },
+        {
+          "feature": "V22",
+          "kind": "numeric",
+          "psi": 0.000869,
+          "ks": 0.00775
+        },
+        {
+          "feature": "V23",
+          "kind": "numeric",
+          "psi": 0.004775,
+          "ks": 0.015
+        },
+        {
+          "feature": "V24",
+          "kind": "numeric",
+          "psi": 0.005335,
+          "ks": 0.01675
+        },
+        {
+          "feature": "V25",
+          "kind": "numeric",
+          "psi": 0.007951,
+          "ks": 0.01975
+        },
+        {
+          "feature": "V26",
+          "kind": "numeric",
+          "psi": 0.004463,
+          "ks": 0.018
+        },
+        {
+          "feature": "V27",
+          "kind": "numeric",
+          "psi": 0.009954,
+          "ks": 0.02275
+        },
+        {
+          "feature": "V28",
+          "kind": "numeric",
+          "psi": 0.003145,
+          "ks": 0.01525
+        }
+      ],
+      "prediction_psi": 0.006559,
+      "prediction_ks": 0.0145,
+      "decision": {
+        "retrain": false,
+        "reasons": [],
+        "flagged_features": [],
+        "prediction_psi": 0.006559
+      }
+    },
+    {
+      "label": "shifted_draw",
+      "n_reference": 4000,
+      "n_current": 4000,
+      "features": [
+        {
+          "feature": "Time",
+          "kind": "numeric",
+          "psi": 1.984868,
+          "ks": 0.3445
+        },
+        {
+          "feature": "Amount",
+          "kind": "numeric",
+          "psi": 0.309361,
+          "ks": 0.20225
+        },
+        {
+          "feature": "V1",
+          "kind": "numeric",
+          "psi": 0.793574,
+          "ks": 0.561
+        },
+        {
+          "feature": "V2",
+          "kind": "numeric",
+          "psi": 2.728209,
+          "ks": 0.6715
+        },
+        {
+          "feature": "V3",
+          "kind": "numeric",
+          "psi": 1.39601,
+          "ks": 0.504
+        },
+        {
+          "feature": "V4",
+          "kind": "numeric",
+          "psi": 4.9364,
+          "ks": 0.783
+        },
+        {
+          "feature": "V5",
+          "kind": "numeric",
+          "psi": 0.003926,
+          "ks": 0.01975
+        },
+        {
+          "feature": "V6",
+          "kind": "numeric",
+          "psi": 0.002682,
+          "ks": 0.02225
+        },
+        {
+          "feature": "V7",
+          "kind": "numeric",
+          "psi": 0.00412,
+          "ks": 0.028
+        },
+        {
+          "feature": "V8",
+          "kind": "numeric",
+          "psi": 0.007562,
+          "ks": 0.0165
+        },
+        {
+          "feature": "V9",
+          "kind": "numeric",
+          "psi": 0.001338,
+          "ks": 0.0105
+        },
+        {
+          "feature": "V10",
+          "kind": "numeric",
+          "psi": 0.004553,
+          "ks": 0.017
+        },
+        {
+          "feature": "V11",
+          "kind": "numeric",
+          "psi": 0.005394,
+          "ks": 0.0195
+        },
+        {
+          "feature": "V12",
+          "kind": "numeric",
+          "psi": 0.007322,
+          "ks": 0.02775
+        },
+        {
+          "feature": "V13",
+          "kind": "numeric",
+          "psi": 0.003409,
+          "ks": 0.016
+        },
+        {
+          "feature": "V14",
+          "kind": "numeric",
+          "psi": 11.08436,
+          "ks": 0.9655
+        },
+        {
+          "feature": "V15",
+          "kind": "numeric",
+          "psi": 0.007997,
+          "ks": 0.0305
+        },
+        {
+          "feature": "V16",
+          "kind": "numeric",
+          "psi": 0.006461,
+          "ks": 0.025
+        },
+        {
+          "feature": "V17",
+          "kind": "numeric",
+          "psi": 0.003294,
+          "ks": 0.017
+        },
+        {
+          "feature": "V18",
+          "kind": "numeric",
+          "psi": 0.005037,
+          "ks": 0.01325
+        },
+        {
+          "feature": "V19",
+          "kind": "numeric",
+          "psi": 0.006087,
+          "ks": 0.0275
+        },
+        {
+          "feature": "V20",
+          "kind": "numeric",
+          "psi": 0.001794,
+          "ks": 0.0115
+        },
+        {
+          "feature": "V21",
+          "kind": "numeric",
+          "psi": 0.005668,
+          "ks": 0.018
+        },
+        {
+          "feature": "V22",
+          "kind": "numeric",
+          "psi": 0.000869,
+          "ks": 0.00775
+        },
+        {
+          "feature": "V23",
+          "kind": "numeric",
+          "psi": 0.004775,
+          "ks": 0.015
+        },
+        {
+          "feature": "V24",
+          "kind": "numeric",
+          "psi": 0.005335,
+          "ks": 0.01675
+        },
+        {
+          "feature": "V25",
+          "kind": "numeric",
+          "psi": 0.007951,
+          "ks": 0.01975
+        },
+        {
+          "feature": "V26",
+          "kind": "numeric",
+          "psi": 0.004463,
+          "ks": 0.018
+        },
+        {
+          "feature": "V27",
+          "kind": "numeric",
+          "psi": 0.009954,
+          "ks": 0.02275
+        },
+        {
+          "feature": "V28",
+          "kind": "numeric",
+          "psi": 0.003145,
+          "ks": 0.01525
+        }
+      ],
+      "prediction_psi": 3.808311,
+      "prediction_ks": 0.652,
+      "decision": {
+        "retrain": true,
+        "reasons": [
+          "7 features have PSI >= 0.2: Time, Amount, V1, V2, V3, V4, V14",
+          "prediction PSI 3.8083 >= 0.1"
+        ],
+        "flagged_features": [
+          "Time",
+          "Amount",
+          "V1",
+          "V2",
+          "V3",
+          "V4",
+          "V14"
+        ],
+        "prediction_psi": 3.808311
+      }
+    }
+  ]
+}
